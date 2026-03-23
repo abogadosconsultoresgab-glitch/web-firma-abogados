@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arenas Betancur Abogados — Estrategia de Élite para la Defensa de tus Derechos</title>
+<meta name="description" content="Firma líder en Medellín especializada en derecho laboral, sindical y constitucional. Defensa estratégica de trabajadores y organizaciones sindicales.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'ab-navy':    '#0f1923',
+          'ab-navy2':   '#162030',
+          'ab-navy3':   '#1e2d3d',
+          'ab-tan':     '#b19885',
+          'ab-tan2':    '#c9aa8f',
+          'ab-tan3':    '#d4bfae',
+          'ab-dark':    '#352423',
+          'ab-stone':   '#f5f0eb',
+          'ab-muted':   '#8b9aaa',
+          'ab-border':  '#1e2d3d',
+        },
+        fontFamily: {
+          serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+          sans:  ['Jost', 'Helvetica Neue', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #0f1923; color: #f5f0eb; font-family: 'Jost', sans-serif; }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: .1s; }
+  .reveal-delay-2 { transition-delay: .2s; }
+  .reveal-delay-3 { transition-delay: .3s; }
+  .reveal-delay-4 { transition-delay: .4s; }
+
+  /* Nav */
+  nav { transition: background .3s, box-shadow .3s; }
+  nav.scrolled { background: rgba(15,25,35,0.97) !important; box-shadow: 0 1px 0 rgba(177,152,133,.15); }
+
+  /* Hero text clip */
+  .hero-title { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .ab-accent { color: #b19885; }
+
+  /* Tan line divider */
+  .tan-line { width: 32px; height: 1px; background: #b19885; display: inline-block; }
+
+  /* Card hover */
+  .service-card { transition: border-color .25s, transform .25s; }
+  .service-card:hover { border-color: #b19885; transform: translateY(-3px); }
+
+  /* Pilar hover */
+  .pilar-card { border-left: 2px solid #b19885; transition: background .25s; }
+  .pilar-card:hover { background: rgba(177,152,133,0.06); }
+
+  /* CTA button */
+  .btn-primary { background: #b19885; color: #0f1923; font-family: 'Jost', sans-serif; letter-spacing: .12em; font-weight: 500; transition: background .2s, transform .15s; }
+  .btn-primary:hover { background: #c9aa8f; transform: translateY(-1px); }
+  .btn-outline { border: 1px solid #b19885; color: #b19885; font-family: 'Jost', sans-serif; letter-spacing: .12em; transition: background .2s, color .2s; }
+  .btn-outline:hover { background: rgba(177,152,133,0.12); }
+
+  /* Sentencia badge */
+  .sentencia-badge { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; background: rgba(177,152,133,.12); border: 1px solid rgba(177,152,133,.3); color: #b19885; padding: 3px 10px; display: inline-block; }
+
+  /* Team card */
+  .team-card { border: 1px solid rgba(177,152,133,.18); transition: border-color .25s; }
+  .team-card:hover { border-color: rgba(177,152,133,.5); }
+
+  /* Form inputs */
+  .form-control { background: rgba(255,255,255,.04); border: 1px solid rgba(177,152,133,.2); color: #f5f0eb; font-family: 'Jost', sans-serif; transition: border-color .2s; }
+  .form-control:focus { outline: none; border-color: #b19885; background: rgba(255,255,255,.06); }
+  .form-control::placeholder { color: rgba(181,172,171,.35); }
+
+  /* Victory card */
+  .victory-card { border: 1px solid rgba(177,152,133,.18); transition: border-color .25s, transform .25s; }
+  .victory-card:hover { border-color: rgba(177,152,133,.5); transform: translateY(-2px); }
+
+  /* Mobile nav */
+  #mobile-menu { transition: max-height .3s ease, opacity .3s ease; max-height: 0; overflow: hidden; opacity: 0; }
+  #mobile-menu.open { max-height: 320px; opacity: 1; }
+
+  /* Noise overlay on hero */
+  .hero-noise { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); }
+
+  /* Section separator */
+  .sep { height: 1px; background: linear-gradient(90deg, transparent, rgba(177,152,133,.3), transparent); }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: 2.4rem !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 flex items-center justify-between" style="background:rgba(15,25,35,0)">
+  <a href="#inicio" class="font-serif text-ab-tan tracking-widest text-sm">·ARENAS· BETANCUR</a>
+  <div class="hidden md:flex gap-8 items-center">
+    <a href="#autoridad" class="text-ab-muted hover:text-ab-tan text-xs tracking-widest uppercase font-sans transition-colors">Firma</a>
+    <a href="#areas" class="text-ab-muted hover:text-ab-tan text-xs tracking-widest uppercase font-sans transition-colors">Áreas</a>
+    <a href="#victorias" class="text-ab-muted hover:text-ab-tan text-xs tracking-widest uppercase font-sans transition-colors">Victorias</a>
+    <a href="#equipo" class="text-ab-muted hover:text-ab-tan text-xs tracking-widest uppercase font-sans transition-colors">Equipo</a>
+    <a href="#contacto" class="btn-primary text-xs px-5 py-2 tracking-widest uppercase">Consulta tu caso</a>
+  </div>
+  <button id="hamburger" onclick="toggleMenu()" class="md:hidden text-ab-tan focus:outline-none">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+</nav>
+<div id="mobile-menu" class="fixed top-16 left-0 right-0 z-40 bg-ab-navy2 border-b border-ab-border px-6 py-4 flex flex-col gap-4">
+  <a href="#autoridad" onclick="toggleMenu()" class="text-ab-muted text-xs tracking-widest uppercase font-sans">Firma</a>
+  <a href="#areas" onclick="toggleMenu()" class="text-ab-muted text-xs tracking-widest uppercase font-sans">Áreas</a>
+  <a href="#victorias" onclick="toggleMenu()" class="text-ab-muted text-xs tracking-widest uppercase font-sans">Victorias</a>
+  <a href="#equipo" onclick="toggleMenu()" class="text-ab-muted text-xs tracking-widest uppercase font-sans">Equipo</a>
+  <a href="#contacto" onclick="toggleMenu()" class="btn-primary text-xs px-5 py-2 tracking-widest uppercase text-center">Consulta tu caso</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="inicio" class="relative min-h-screen flex flex-col justify-center overflow-hidden hero-noise">
+  <!-- Background grid lines -->
+  <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(177,152,133,.4) 1px, transparent 1px), linear-gradient(90deg, rgba(177,152,133,.4) 1px, transparent 1px); background-size: 80px 80px;"></div>
+  <!-- Large AB monogram -->
+  <div class="absolute right-0 top-0 bottom-0 flex items-center opacity-5 pointer-events-none select-none overflow-hidden">
+    <span class="font-serif" style="font-size:52vw;line-height:1;color:#b19885;letter-spacing:-.05em">AB</span>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-12 pt-32 pb-20">
+    <p class="text-ab-tan text-xs tracking-widest uppercase font-sans mb-6 reveal">Medellín, Colombia · Firma especializada en derecho laboral y sindical</p>
+    <div class="tan-line mb-10 reveal reveal-delay-1"></div>
+    <h1 class="hero-title font-serif font-light text-ab-stone leading-tight mb-8 reveal reveal-delay-1" style="font-size:3.8rem; max-width:800px">
+      Arenas Betancur Abogados:<br>
+      <em class="ab-accent not-italic">Estrategia de Élite para<br>la Defensa de tus Derechos</em>
+    </h1>
+    <p class="font-sans font-light text-ab-muted text-base leading-relaxed mb-12 reveal reveal-delay-2" style="max-width:580px">
+      No solo litigamos; diseñamos soluciones jurídicas de alta complejidad en derecho laboral, sindical y constitucional para proteger tu dignidad y la de tu organización.
+    </p>
+    <div class="flex flex-wrap gap-4 reveal reveal-delay-3">
+      <a href="#contacto" class="btn-primary px-8 py-3 text-xs tracking-widest uppercase">Consulta tu caso →</a>
+      <a href="#areas" class="btn-outline px-8 py-3 text-xs tracking-widest uppercase">Ver áreas de práctica</a>
+    </div>
+
+    <!-- Stats row -->
+    <div class="mt-20 pt-10 border-t border-ab-border flex flex-wrap gap-10 reveal reveal-delay-4">
+      <div>
+        <div class="font-serif text-ab-tan text-3xl font-light">+6</div>
+        <div class="font-sans text-ab-muted text-xs tracking-widest uppercase mt-1">Años de trayectoria</div>
+      </div>
+      <div>
+        <div class="font-serif text-ab-tan text-3xl font-light">4</div>
+        <div class="font-sans text-ab-muted text-xs tracking-widest uppercase mt-1">Áreas de especialidad</div>
+      </div>
+      <div>
+        <div class="font-serif text-ab-tan text-3xl font-light">Corte</div>
+        <div class="font-sans text-ab-muted text-xs tracking-widest uppercase mt-1">Constitucional · Suprema</div>
+      </div>
+      <div>
+        <div class="font-serif text-ab-tan text-3xl font-light">Docentes</div>
+        <div class="font-sans text-ab-muted text-xs tracking-widest uppercase mt-1">Rigor académico activo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ AUTORIDAD ═══════════ -->
+<section id="autoridad" class="py-24 px-6 md:px-12 bg-ab-navy2">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-ab-tan text-xs tracking-widest uppercase font-sans mb-4 reveal">Nuestra autoridad</p>
+        <h2 class="font-serif font-light text-ab-stone text-4xl leading-tight mb-6 reveal reveal-delay-1">Acerca<br><em class="ab-accent not-italic">de la firma</em></h2>
+        <div class="tan-line mb-6 reveal reveal-delay-1"></div>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed mb-6 reveal reveal-delay-2">
+          Somos una firma líder en Medellín, especializada en la protección estratégica frente a vulneraciones de derechos. Nuestro enfoque combina el rigor académico de la docencia universitaria con una trayectoria probada en litigio ante la Corte Constitucional, garantizando una defensa ética y orientada a la justicia social.
+        </p>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed reveal reveal-delay-3">
+          Cada caso que tomamos es una causa: trabajadores en debilidad manifiesta, sindicatos que requieren protección institucional y ciudadanos que enfrentan abusos de poder. Actuamos con profundidad técnica y convicción humana.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-4 reveal reveal-delay-2">
+        <div class="pilar-card bg-ab-navy3 p-6 rounded-sm">
+          <span class="sentencia-badge mb-3 block">Liderazgo académico</span>
+          <p class="font-sans text-ab-stone text-sm font-light leading-relaxed">Germán Arenas Betancur ejerce como docente universitario, aportando rigor académico a cada estrategia jurídica de la firma.</p>
+        </div>
+        <div class="pilar-card bg-ab-navy3 p-6 rounded-sm">
+          <span class="sentencia-badge mb-3 block">Litigio de alto impacto</span>
+          <p class="font-sans text-ab-stone text-sm font-light leading-relaxed">Trayectoria probada en litigios ante la Corte Constitucional y la Corte Suprema de Justicia — Sala de Casación Laboral.</p>
+        </div>
+        <div class="pilar-card bg-ab-navy3 p-6 rounded-sm">
+          <span class="sentencia-badge mb-3 block">Presencia sindical nacional</span>
+          <p class="font-sans text-ab-stone text-sm font-light leading-relaxed">Asesores de SINTRAMINEROS, SINTRAELECOL, USEF SI, ASOPROTEC y SINTRASS, entre otras organizaciones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ PILARES ═══════════ -->
+<section class="py-24 px-6 md:px-12 bg-ab-navy">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-ab-tan text-xs tracking-widest uppercase font-sans mb-4 reveal">Los tres pilares de nuestra firma</p>
+    <h2 class="font-serif font-light text-ab-stone text-4xl leading-tight mb-16 reveal reveal-delay-1">Por qué somos<br><em class="ab-accent not-italic">diferentes</em></h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="pilar-card bg-ab-navy2 p-8 rounded-sm reveal reveal-delay-1">
+        <div class="font-serif text-ab-tan text-5xl font-light mb-6">01</div>
+        <h3 class="font-sans font-medium text-ab-stone text-sm tracking-wide mb-4 uppercase">Claridad y rigor<br>en los hechos</h3>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Construimos relatos de la verdad paso a paso, de forma tan clara y precisa que resultan incontestables ante cualquier juez.</p>
+        <div class="mt-6 pt-6 border-t border-ab-border">
+          <span class="font-sans text-ab-tan text-xs tracking-widest">Hechos atómicos · Cronología impecable</span>
+        </div>
+      </div>
+      <div class="pilar-card bg-ab-navy2 p-8 rounded-sm reveal reveal-delay-2">
+        <div class="font-serif text-ab-tan text-5xl font-light mb-6">02</div>
+        <h3 class="font-sans font-medium text-ab-stone text-sm tracking-wide mb-4 uppercase">Dominio de<br>grandes sentencias</h3>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Especialistas en protegerte usando los precedentes más importantes del país, como la SU-236/22 (Discriminación) y la SU-1067/00 (Libertad Sindical).</p>
+        <div class="mt-6 pt-6 border-t border-ab-border">
+          <span class="font-sans text-ab-tan text-xs tracking-widest">SU-236/22 · SU-1067/00</span>
+        </div>
+      </div>
+      <div class="pilar-card bg-ab-navy2 p-8 rounded-sm reveal reveal-delay-3">
+        <div class="font-serif text-ab-tan text-5xl font-light mb-6">03</div>
+        <h3 class="font-sans font-medium text-ab-stone text-sm tracking-wide mb-4 uppercase">Compromiso<br>real</h3>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Defendemos a quienes enfrentan desequilibrios de poder, desde trabajadores valientes hasta grandes organizaciones sindicales.</p>
+        <div class="mt-6 pt-6 border-t border-ab-border">
+          <span class="font-sans text-ab-tan text-xs tracking-widest">Justicia social · Ética · Resultados</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ ÁREAS ═══════════ -->
+<section id="areas" class="py-24 px-6 md:px-12 bg-ab-navy2">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-ab-tan text-xs tracking-widest uppercase font-sans mb-4 reveal">Áreas de especialidad</p>
+    <h2 class="font-serif font-light text-ab-stone text-4xl leading-tight mb-4 reveal reveal-delay-1">Cada derecho vulnerado<br><em class="ab-accent not-italic">tiene un camino legal</em></h2>
+    <p class="font-sans font-light text-ab-muted text-sm mb-14 reveal reveal-delay-2" style="max-width:520px">Cuatro frentes jurídicos con profundidad técnica y jurisprudencial al servicio de quienes más lo necesitan.</p>
+    <div class="grid md:grid-cols-2 gap-5">
+      <!-- Laboral -->
+      <div class="service-card bg-ab-navy p-8 border border-ab-border rounded-sm reveal reveal-delay-1">
+        <div class="w-8 h-0.5 bg-ab-tan mb-5"></div>
+        <h3 class="font-serif text-ab-stone text-2xl font-light mb-2">Derecho Laboral</h3>
+        <p class="font-sans text-ab-tan text-xs tracking-wide italic mb-5">Tu estabilidad no se negocia</p>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed mb-6">Protegemos el salario, la estabilidad y las prestaciones. Si tienes fuero de salud, eres madre o padre cabeza de familia, o fuiste despedido sin justa causa — actuamos.</p>
+        <ul class="space-y-2">
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Fuero de salud — debilidad manifiesta</li>
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Madre y padre cabeza de familia</li>
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Despidos injustificados e indemnizaciones</li>
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Acoso laboral y renuncia motivada</li>
+          <li class="font-sans text-ab-muted text-xs flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Horas extras, cesantías y liquidaciones</li>
+        </ul>
+      </div>
+      <!-- Sindical -->
+      <div class="service-card bg-ab-navy p-8 border border-ab-border rounded-sm reveal reveal-delay-2">
+        <div class="w-8 h-0.5 bg-ab-tan mb-5"></div>
+        <h3 class="font-serif text-ab-stone text-2xl font-light mb-2">Derecho Sindical</h3>
+        <p class="font-sans text-ab-tan text-xs tracking-wide italic mb-5">Libertad de asociación, negociación colectiva y democracia interna</p>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed mb-6">Asesoramos organizaciones sindicales con visión estratégica. Desde la negociación de convenciones colectivas hasta la defensa de la legalidad de la huelga ante las más altas instancias.</p>
+        <ul class="space-y-2">
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Defensa de fueros sindicales</li>
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Laudos arbitrales — Corte Suprema de Justicia</li>
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Pliegos de peticiones y convenciones colectivas</li>
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Denuncias ante CETCOIT — libertad sindical</li>
+          <li class="font-sans text-ab-muted text-xs flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Huelga no contractual — defensa de legalidad</li>
+        </ul>
+      </div>
+      <!-- Seguridad Social -->
+      <div class="service-card bg-ab-navy p-8 border border-ab-border rounded-sm reveal reveal-delay-1">
+        <div class="w-8 h-0.5 bg-ab-tan mb-5"></div>
+        <h3 class="font-serif text-ab-stone text-2xl font-light mb-2">Seguridad Social</h3>
+        <p class="font-sans text-ab-tan text-xs tracking-wide italic mb-5">Garantiza tu futuro y el de los tuyos</p>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed mb-6">Cuando el sistema pensional falla al trabajador, intervenimos. Reclamamos pensiones negadas injustamente y el acceso a las prestaciones que la ley garantiza.</p>
+        <ul class="space-y-2">
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Pensión de sobreviviente</li>
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Reconocimiento pensional — Colpensiones</li>
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Pensión sanción</li>
+          <li class="font-sans text-ab-muted text-xs flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>No pago de seguridad social por el empleador</li>
+        </ul>
+      </div>
+      <!-- Constitucional -->
+      <div class="service-card bg-ab-navy p-8 border border-ab-border rounded-sm reveal reveal-delay-2">
+        <div class="w-8 h-0.5 bg-ab-tan mb-5"></div>
+        <h3 class="font-serif text-ab-stone text-2xl font-light mb-2">Litigio Constitucional</h3>
+        <p class="font-sans text-ab-tan text-xs tracking-wide italic mb-5">Acciones de tutela y defensa contra abusos de poder</p>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed mb-6">Cuando los derechos fundamentales son vulnerados, el tiempo corre. Interponemos tutelas con argumentación sólida y diseñamos acciones que generan precedentes.</p>
+        <ul class="space-y-2">
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Acciones de tutela — urgentes y estratégicas</li>
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Derechos de petición</li>
+          <li class="font-sans text-ab-muted text-xs border-b border-ab-border pb-2 flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Acciones populares y de grupo</li>
+          <li class="font-sans text-ab-muted text-xs flex gap-2 items-center"><span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-0.5"></span>Litigio ante la Corte Constitucional</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ VICTORIAS ═══════════ -->
+<section id="victorias" class="py-24 px-6 md:px-12 bg-ab-navy">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-ab-tan text-xs tracking-widest uppercase font-sans mb-4 reveal">Resultados comprobables</p>
+    <h2 class="font-serif font-light text-ab-stone text-4xl leading-tight mb-4 reveal reveal-delay-1">Nuestras<br><em class="ab-accent not-italic">Victorias Jurídicas</em></h2>
+    <p class="font-sans font-light text-ab-muted text-sm mb-14 reveal reveal-delay-2" style="max-width:520px">Casos resueltos con estrategia, rigor y compromiso. Cada victoria es un precedente que fortalece derechos.</p>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="victory-card bg-ab-navy2 p-7 rounded-sm reveal reveal-delay-1">
+        <span class="sentencia-badge mb-4 block">Estabilidad reforzada — Salud</span>
+        <h3 class="font-serif text-ab-stone text-lg font-light mb-3">Reintegro por fuero de salud — Sector minero</h3>
+        <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Trabajador con condición de salud crónica despedido sin autorización del Inspector de Trabajo. Se demostró el conocimiento previo del empleador y el nexo causal discriminatorio. Reintegro ordenado con pago de salarios caídos.</p>
+        <div class="border-t border-ab-border pt-4 flex items-center justify-between">
+          <span class="font-sans text-ab-tan text-xs">Juzgado Laboral · Medellín</span>
+          <a href="mailto:abogados@arenasbetancur.com?subject=Consulta sobre caso reintegro salud" class="font-sans text-ab-tan text-xs hover:text-ab-tan2 tracking-wide transition-colors">Ver sentencia →</a>
+        </div>
+      </div>
+      <div class="victory-card bg-ab-navy2 p-7 rounded-sm reveal reveal-delay-2">
+        <span class="sentencia-badge mb-4 block">Derecho sindical — Fuero</span>
+        <h3 class="font-serif text-ab-stone text-lg font-light mb-3">Defensa de fuero sindical — Empresa de servicios públicos</h3>
+        <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Dirigente sindical desvinculado sin levantamiento previo del fuero. Aplicando la SU-1067/00 y la doctrina de efecto escalofriante (chilling effect), se obtuvo el reintegro inmediato con todas las garantías sindicales intactas.</p>
+        <div class="border-t border-ab-border pt-4 flex items-center justify-between">
+          <span class="font-sans text-ab-tan text-xs">Tribunal Superior · Sala Laboral</span>
+          <a href="mailto:abogados@arenasbetancur.com?subject=Consulta sobre caso fuero sindical" class="font-sans text-ab-tan text-xs hover:text-ab-tan2 tracking-wide transition-colors">Ver sentencia →</a>
+        </div>
+      </div>
+      <div class="victory-card bg-ab-navy2 p-7 rounded-sm reveal reveal-delay-3">
+        <span class="sentencia-badge mb-4 block">Litigio constitucional — Tutela</span>
+        <h3 class="font-serif text-ab-stone text-lg font-light mb-3">Tutela por mínimo vital — Madre cabeza de familia</h3>
+        <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Trabajadora despedida durante periodo de lactancia sin el procedimiento especial de protección. Tutela concedida en 24 horas, con reintegro inmediato y reconocimiento de la vulneración al mínimo vital y a los derechos del menor.</p>
+        <div class="border-t border-ab-border pt-4 flex items-center justify-between">
+          <span class="font-sans text-ab-tan text-xs">Corte Constitucional</span>
+          <a href="mailto:abogados@arenasbetancur.com?subject=Consulta sobre caso tutela madre cabeza" class="font-sans text-ab-tan text-xs hover:text-ab-tan2 tracking-wide transition-colors">Ver sentencia →</a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 text-center reveal">
+      <a href="mailto:abogados@arenasbetancur.com?subject=Quiero conocer más casos de éxito" class="btn-outline px-8 py-3 text-xs tracking-widest uppercase inline-block">Consultar más casos →</a>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ EQUIPO ═══════════ -->
+<section id="equipo" class="py-24 px-6 md:px-12 bg-ab-navy2">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-ab-tan text-xs tracking-widest uppercase font-sans mb-4 reveal">Las personas detrás de la estrategia</p>
+    <h2 class="font-serif font-light text-ab-stone text-4xl leading-tight mb-16 reveal reveal-delay-1">Nuestro<br><em class="ab-accent not-italic">equipo</em></h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Germán -->
+      <div class="team-card bg-ab-navy p-8 rounded-sm reveal reveal-delay-1">
+        <div class="flex items-center gap-5 mb-6 pb-6 border-b border-ab-border">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 font-serif text-ab-tan text-xl font-light border border-ab-tan" style="background:#1e2d3d">GA</div>
+          <div>
+            <h3 class="font-serif text-ab-stone text-xl font-light">Germán Arenas Betancur</h3>
+            <p class="font-sans text-ab-tan text-xs tracking-widest uppercase mt-1">Socio Director</p>
+            <span class="inline-flex items-center gap-1.5 mt-2 text-ab-tan text-xs font-sans tracking-wide border border-ab-tan px-2.5 py-1" style="border-color:rgba(177,152,133,.4);background:rgba(177,152,133,.08)">
+              <span class="w-1.5 h-1.5 rounded-full bg-ab-tan"></span>
+              Dirección de la firma
+            </span>
+          </div>
+        </div>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed mb-6">Socio-Director, docente de la Universidad de Medellín y líder de litigios estratégicos de alto impacto ante las altas cortes. Combina el rigor de la docencia universitaria con una trayectoria probada en la defensa de trabajadores, organizaciones sindicales y causas constitucionales de relevancia nacional.</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex gap-3 items-start">
+            <span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-2"></span>
+            <span class="font-sans text-ab-muted text-xs leading-relaxed"><strong class="text-ab-stone font-medium">Docente de cátedra</strong> — Tecnológico de Antioquia · Universidad de Medellín</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-2"></span>
+            <span class="font-sans text-ab-muted text-xs leading-relaxed"><strong class="text-ab-stone font-medium">Litigios de alto impacto</strong> ante la Corte Constitucional de Colombia</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-2"></span>
+            <span class="font-sans text-ab-muted text-xs leading-relaxed"><strong class="text-ab-stone font-medium">Asesor sindical</strong> — SINTRAMINEROS, SINTRAELECOL, USEF SI, ASOPROTEC, SINTRASS</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-2"></span>
+            <span class="font-sans text-ab-muted text-xs leading-relaxed"><strong class="text-ab-stone font-medium">100 jóvenes más influyentes de Colombia</strong> — British Council, 2018</span>
+          </li>
+        </ul>
+        <div class="pt-5 border-t border-ab-border flex flex-wrap gap-2">
+          <span class="sentencia-badge">Derecho laboral</span>
+          <span class="sentencia-badge">Litigio constitucional</span>
+          <span class="sentencia-badge">Docente universitario</span>
+          <span class="sentencia-badge">T.P. 403658 C.S.J.</span>
+        </div>
+      </div>
+      <!-- Luis Miguel -->
+      <div class="team-card bg-ab-navy p-8 rounded-sm reveal reveal-delay-2">
+        <div class="flex items-center gap-5 mb-6 pb-6 border-b border-ab-border">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 font-serif text-ab-tan text-xl font-light border border-ab-tan" style="background:#1e2d3d;border-color:rgba(177,152,133,.6)">LM</div>
+          <div>
+            <h3 class="font-serif text-ab-stone text-xl font-light">Luis Miguel Acuña Gómez</h3>
+            <p class="font-sans text-ab-tan text-xs tracking-widest uppercase mt-1">Socio Subdirector</p>
+          </div>
+        </div>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed mb-6">Socio Subdirector, experto en defensa de derechos colectivos y litigio comercial con una visión moderna y efectiva. Con más de tres años de ejercicio profesional, aporta rigor técnico y un profundo compromiso con el acceso a la justicia para quienes más lo necesitan.</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex gap-3 items-start">
+            <span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-2"></span>
+            <span class="font-sans text-ab-muted text-xs leading-relaxed"><strong class="text-ab-stone font-medium">Defensa de derechos colectivos</strong> — litigio laboral, civil y comercial</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-2"></span>
+            <span class="font-sans text-ab-muted text-xs leading-relaxed"><strong class="text-ab-stone font-medium">Asesoría jurídica especializada</strong> en derecho sindical y constitucional</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="w-1 h-1 rounded-full bg-ab-tan flex-shrink-0 mt-2"></span>
+            <span class="font-sans text-ab-muted text-xs leading-relaxed"><strong class="text-ab-stone font-medium">Visión moderna</strong> — estrategias efectivas y orientadas al acceso a la justicia</span>
+          </li>
+        </ul>
+        <div class="pt-5 border-t border-ab-border flex flex-wrap gap-2">
+          <span class="sentencia-badge">Derechos colectivos</span>
+          <span class="sentencia-badge">Litigio comercial</span>
+          <span class="sentencia-badge">Derecho constitucional</span>
+          <span class="sentencia-badge">Acceso a la justicia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ CONTACTO ═══════════ -->
+<section id="contacto" class="py-24 px-6 md:px-12 bg-ab-navy">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <div>
+        <p class="text-ab-tan text-xs tracking-widest uppercase font-sans mb-4 reveal">Da el primer paso</p>
+        <h2 class="font-serif font-light text-ab-stone text-4xl leading-tight mb-6 reveal reveal-delay-1">Tu situación merece<br><em class="ab-accent not-italic">una revisión experta</em></h2>
+        <div class="tan-line mb-6 reveal reveal-delay-1"></div>
+        <p class="font-sans font-light text-ab-muted text-sm leading-relaxed mb-10 reveal reveal-delay-2">Cuéntanos tu caso. Analizamos si tienes fuero de estabilidad, opciones de reintegro o cualquier acción jurídica disponible. Cuando el tiempo importa, actuamos con urgencia.</p>
+        <div class="space-y-6 reveal reveal-delay-3">
+          <div>
+            <p class="font-sans text-ab-tan text-xs tracking-widest uppercase mb-1">Germán Arenas Betancur</p>
+            <a href="tel:+573166349332" class="font-sans text-ab-stone text-sm hover:text-ab-tan transition-colors">+57 316 634 9332</a>
+          </div>
+          <div>
+            <p class="font-sans text-ab-tan text-xs tracking-widest uppercase mb-1">Luis Miguel Acuña Gómez</p>
+            <a href="tel:+573053288385" class="font-sans text-ab-stone text-sm hover:text-ab-tan transition-colors">+57 305 328 8385</a>
+          </div>
+          <div>
+            <p class="font-sans text-ab-tan text-xs tracking-widest uppercase mb-1">Correo electrónico</p>
+            <a href="mailto:abogados@arenasbetancur.com" class="font-sans text-ab-stone text-sm hover:text-ab-tan transition-colors">abogados@arenasbetancur.com</a>
+          </div>
+          <div>
+            <p class="font-sans text-ab-tan text-xs tracking-widest uppercase mb-1">Redes sociales</p>
+            <p class="font-sans text-ab-stone text-sm">@arenasbetancurabogados</p>
+          </div>
+        </div>
+      </div>
+      <!-- Formulario -->
+      <div class="reveal reveal-delay-2">
+        <form action="https://formsubmit.co/abogados@arenasbetancur.com" method="POST" class="space-y-4">
+          <input type="hidden" name="_subject" value="Nueva consulta desde arenasbetancur.com">
+          <input type="hidden" name="_next" value="https://arenasbetancur.com">
+          <input type="hidden" name="_captcha" value="false">
+          <div>
+            <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Nombre completo</label>
+            <input type="text" name="nombre" required placeholder="Tu nombre completo" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+          </div>
+          <div>
+            <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Teléfono / WhatsApp</label>
+            <input type="tel" name="telefono" required placeholder="+57" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+          </div>
+          <div>
+            <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Correo electrónico</label>
+            <input type="email" name="email" placeholder="tu@correo.com" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+          </div>
+          <div>
+            <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Área de consulta</label>
+            <select name="area" required class="form-control w-full px-4 py-3 text-sm rounded-sm">
+              <option value="">Selecciona el área</option>
+              <option>Estabilidad reforzada — reintegro / fuero de salud</option>
+              <option>Madre o padre cabeza de familia — fuero</option>
+              <option>Derecho sindical — convención / huelga / fuero</option>
+              <option>Litigio constitucional — tutela</option>
+              <option>Seguridad social — pensión</option>
+              <option>Otro asunto laboral</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Describe brevemente tu caso</label>
+            <textarea name="caso" rows="4" placeholder="¿Qué está ocurriendo con tu trabajo o tus derechos?" class="form-control w-full px-4 py-3 text-sm rounded-sm resize-none"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full py-3 text-xs tracking-widest uppercase mt-2">Solicitar consulta →</button>
+          <p class="font-sans text-ab-muted text-xs text-center">Tu consulta será atendida en menos de 24 horas.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="py-10 px-6 md:px-12 border-t" style="background:#0a1016;border-color:rgba(177,152,133,.12)">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+      <div class="text-center md:text-left">
+        <div class="font-serif text-ab-tan tracking-widest text-lg mb-1">·ARENAS· BETANCUR</div>
+        <div class="font-sans text-ab-muted text-xs tracking-widest uppercase">Abogados</div>
+      </div>
+      <div class="flex flex-wrap gap-6 justify-center">
+        <a href="#inicio" class="font-sans text-ab-muted text-xs tracking-widest uppercase hover:text-ab-tan transition-colors">Inicio</a>
+        <a href="#autoridad" class="font-sans text-ab-muted text-xs tracking-widest uppercase hover:text-ab-tan transition-colors">Firma</a>
+        <a href="#areas" class="font-sans text-ab-muted text-xs tracking-widest uppercase hover:text-ab-tan transition-colors">Áreas</a>
+        <a href="#victorias" class="font-sans text-ab-muted text-xs tracking-widest uppercase hover:text-ab-tan transition-colors">Victorias</a>
+        <a href="#equipo" class="font-sans text-ab-muted text-xs tracking-widest uppercase hover:text-ab-tan transition-colors">Equipo</a>
+        <a href="#contacto" class="font-sans text-ab-muted text-xs tracking-widest uppercase hover:text-ab-tan transition-colors">Contacto</a>
+      </div>
+    </div>
+    <div class="border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-3" style="border-color:rgba(177,152,133,.1)">
+      <p class="font-sans text-xs" style="color:#4a5568">© 2025 Arenas Betancur Abogados S.A.S. — Medellín, Colombia</p>
+      <a href="mailto:abogados@arenasbetancur.com" class="font-sans text-ab-tan text-xs hover:text-ab-tan2 transition-colors">abogados@arenasbetancur.com</a>
+      <p class="font-sans text-xs" style="color:#4a5568">arenasbetancur.com</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ JS ═══════════ -->
+<script>
+  // Nav scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Hero entry animation
+  document.querySelectorAll('#inicio .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 200 + i * 120);
+  });
+</script>
+</body>
+</html>VOY 
