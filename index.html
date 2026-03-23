@@ -95,6 +95,18 @@
   /* Section separator */
   .sep { height: 1px; background: linear-gradient(90deg, transparent, rgba(177,152,133,.3), transparent); }
 
+  /* ── Team photo ── */
+  .team-photo {
+    width: 4rem;          /* w-16 = 64px — matches original div size */
+    height: 4rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    object-position: top; /* avoids cropping the face */
+    flex-shrink: 0;
+    border: 2px solid rgba(177,152,133,.7);
+    display: block;
+  }
+
   @media (max-width: 768px) {
     .hero-title { font-size: 2.4rem !important; }
   }
@@ -359,10 +371,18 @@
     <p class="text-ab-tan text-xs tracking-widest uppercase font-sans mb-4 reveal">Las personas detrás de la estrategia</p>
     <h2 class="font-serif font-light text-ab-stone text-4xl leading-tight mb-16 reveal reveal-delay-1">Nuestro<br><em class="ab-accent not-italic">equipo</em></h2>
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Germán -->
+
+      <!-- ── Germán ── -->
       <div class="team-card bg-ab-navy p-8 rounded-sm reveal reveal-delay-1">
         <div class="flex items-center gap-5 mb-6 pb-6 border-b border-ab-border">
-          <div class="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 font-serif text-ab-tan text-xl font-light border border-ab-tan" style="background:#1e2d3d">GA</div>
+
+          <!-- FOTO GERMÁN — reemplaza el div de iniciales -->
+          <img
+            src="foto-german-arenas.jpg"
+            alt="Germán Arenas Betancur"
+            class="team-photo"
+          >
+
           <div>
             <h3 class="font-serif text-ab-stone text-xl font-light">Germán Arenas Betancur</h3>
             <p class="font-sans text-ab-tan text-xs tracking-widest uppercase mt-1">Socio Director</p>
@@ -398,10 +418,18 @@
           <span class="sentencia-badge">T.P. 403658 C.S.J.</span>
         </div>
       </div>
-      <!-- Luis Miguel -->
+
+      <!-- ── Luis Miguel ── -->
       <div class="team-card bg-ab-navy p-8 rounded-sm reveal reveal-delay-2">
         <div class="flex items-center gap-5 mb-6 pb-6 border-b border-ab-border">
-          <div class="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 font-serif text-ab-tan text-xl font-light border border-ab-tan" style="background:#1e2d3d;border-color:rgba(177,152,133,.6)">LM</div>
+
+          <!-- FOTO LUIS MIGUEL — reemplaza el div de iniciales -->
+          <img
+            src="foto-luis-miguel-acuna.jpg"
+            alt="Luis Miguel Acuña Gómez"
+            class="team-photo"
+          >
+
           <div>
             <h3 class="font-serif text-ab-stone text-xl font-light">Luis Miguel Acuña Gómez</h3>
             <p class="font-sans text-ab-tan text-xs tracking-widest uppercase mt-1">Socio Subdirector</p>
@@ -429,6 +457,7 @@
           <span class="sentencia-badge">Acceso a la justicia</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -555,4 +584,4 @@
   });
 </script>
 </body>
-</html>VOY 
+</html>
