@@ -159,9 +159,76 @@
   .form-control:focus { outline: none; border-color: #b19885; background: rgba(255,255,255,.06); }
   .form-control::placeholder { color: rgba(181,172,171,.35); }
 
-  /* Victory card */
-  .victory-card { border: 1px solid rgba(177,152,133,.18); transition: border-color .25s, transform .25s; }
-  .victory-card:hover { border-color: rgba(177,152,133,.5); transform: translateY(-2px); }
+  /* Victory card — Diseño horizontal tipo Instagram */
+  .victory-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(177,152,133,.18);
+    transition: border-color .35s, transform .35s, box-shadow .35s;
+    overflow: hidden;
+    background: #161a22;
+  }
+  .victory-card:hover {
+    border-color: rgba(177,152,133,.5);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  }
+  .victory-icon {
+    flex: 0 0 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1f2a 0%, #0f1318 100%);
+    position: relative;
+    min-height: 220px;
+  }
+  .victory-icon .case-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgba(177,152,133,.12);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    line-height: 1;
+  }
+  .victory-icon .case-icon {
+    position: relative; z-index: 2;
+    width: 56px; height: 56px;
+    border: 2px solid rgba(177,152,133,.35);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #b19885;
+    font-size: 1.3rem;
+  }
+  .victory-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .victory-btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .6rem 1.4rem;
+    border: 1px solid rgba(177,152,133,.4);
+    color: #b19885;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .25s;
+    width: fit-content;
+  }
+  .victory-btn:hover {
+    background: rgba(177,152,133,.12);
+    border-color: #b19885;
+    color: #d4c4b0;
+  }
+  @media (max-width: 768px) {
+    .victory-card { flex-direction: column; }
+    .victory-icon { min-height: 140px; flex: none; }
+  }
 
   /* Mobile nav */
   #mobile-menu { transition: max-height .3s ease, opacity .3s ease; max-height: 0; overflow: hidden; opacity: 0; }
@@ -390,43 +457,169 @@
 
 <div class="sep"></div>
 
-<!-- ═══════════ VICTORIAS ═══════════ -->
+<!-- ═══════════ VICTORIAS — 10 CASOS REALES ═══════════ -->
 <section id="victorias" class="py-24 px-6 md:px-12 bg-ab-navy">
-  <div class="max-w-6xl mx-auto">
-    <p class="text-ab-tan text-xs tracking-widest uppercase font-sans mb-4 reveal">Resultados comprobables</p>
+  <div class="max-w-5xl mx-auto">
+    <p class="text-ab-tan text-xs tracking-widest uppercase font-sans mb-4 reveal">Resultados comprobables · Sentencias verificables</p>
     <h2 class="font-serif font-light text-ab-stone text-4xl leading-tight mb-4 reveal reveal-delay-1">Nuestras<br><em class="ab-accent not-italic">Victorias Jurídicas</em></h2>
-    <p class="font-sans font-light text-ab-muted text-sm mb-14 reveal reveal-delay-2" style="max-width:520px">Casos resueltos con estrategia, rigor y compromiso. Cada victoria es un precedente que fortalece derechos.</p>
-    <div class="grid md:grid-cols-3 gap-5">
-      <div class="victory-card bg-ab-navy2 p-7 rounded-sm reveal reveal-delay-1">
-        <span class="sentencia-badge mb-4 block">Estabilidad reforzada — Salud</span>
-        <h3 class="font-serif text-ab-stone text-lg font-light mb-3">Reintegro por fuero de salud — Sector minero</h3>
-        <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Trabajador con condición de salud crónica despedido sin autorización del Inspector de Trabajo. Se demostró el conocimiento previo del empleador y el nexo causal discriminatorio. Reintegro ordenado con pago de salarios caídos.</p>
-        <div class="border-t border-ab-border pt-4 flex items-center justify-between">
-          <span class="font-sans text-ab-tan text-xs">Juzgado Laboral · Medellín</span>
-          <a href="mailto:abogados@arenasbetancur.com?subject=Consulta sobre caso reintegro salud" class="font-sans text-ab-tan text-xs hover:text-ab-tan2 tracking-wide transition-colors">Ver sentencia →</a>
+    <p class="font-sans font-light text-ab-muted text-sm mb-14 reveal reveal-delay-2" style="max-width:560px">10 sentencias reales. Cada una con PDF descargable. Estrategia, rigor y compromiso al servicio de los derechos laborales en Colombia.</p>
+
+    <div class="flex flex-col gap-6">
+
+      <!-- CASO 1 -->
+      <div class="victory-card rounded-sm reveal reveal-delay-1">
+        <div class="victory-icon">
+          <span class="case-number">01</span>
+          <div class="case-icon">⚖️</div>
+        </div>
+        <div class="victory-content">
+          <span class="sentencia-badge mb-3 block">Litigio constitucional — Tutela</span>
+          <h3 class="font-serif text-ab-stone text-xl font-light mb-2">Arenas vs. Tribunal de Cundinamarca</h3>
+          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-tan">Corte Constitucional · Sala Sexta de Revisión · T-255/2023</strong></p>
+          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Se declaró defecto orgánico del Tribunal Administrativo de Cundinamarca por exceder su competencia al dictar medidas cautelares sobre hechos nuevos en etapa de cumplimiento de tutela.</p>
+          <a href="sentencias/1-arenas-vs-tribunal-cundinamarca.pdf" target="_blank" class="victory-btn">📄 Ver Sentencia Completa →</a>
         </div>
       </div>
-      <div class="victory-card bg-ab-navy2 p-7 rounded-sm reveal reveal-delay-2">
-        <span class="sentencia-badge mb-4 block">Derecho sindical — Fuero</span>
-        <h3 class="font-serif text-ab-stone text-lg font-light mb-3">Defensa de fuero sindical — Empresa de servicios públicos</h3>
-        <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Dirigente sindical desvinculado sin levantamiento previo del fuero. Aplicando la SU-1067/00 y la doctrina de efecto escalofriante (chilling effect), se obtuvo el reintegro inmediato con todas las garantías sindicales intactas.</p>
-        <div class="border-t border-ab-border pt-4 flex items-center justify-between">
-          <span class="font-sans text-ab-tan text-xs">Tribunal Superior · Sala Laboral</span>
-          <a href="mailto:abogados@arenasbetancur.com?subject=Consulta sobre caso fuero sindical" class="font-sans text-ab-tan text-xs hover:text-ab-tan2 tracking-wide transition-colors">Ver sentencia →</a>
+
+      <!-- CASO 2 -->
+      <div class="victory-card rounded-sm reveal reveal-delay-1">
+        <div class="victory-icon">
+          <span class="case-number">02</span>
+          <div class="case-icon">🏛️</div>
+        </div>
+        <div class="victory-content">
+          <span class="sentencia-badge mb-3 block">Derecho colectivo — Anulación de laudo</span>
+          <h3 class="font-serif text-ab-stone text-xl font-light mb-2">Sintraelecol vs. EPM</h3>
+          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-tan">Corte Suprema de Justicia · Sala de Casación Laboral · SL3257-2024</strong></p>
+          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Recurso de anulación contra laudo arbitral que resolvió conflicto colectivo por actualización económica de beneficios convencionales de Sintraelecol Subdirectiva Antioquia frente a EPM (2008–2023).</p>
+          <a href="sentencias/2-sintraelecol-vs-epm-anulacion.pdf" target="_blank" class="victory-btn">📄 Ver Sentencia Completa →</a>
         </div>
       </div>
-      <div class="victory-card bg-ab-navy2 p-7 rounded-sm reveal reveal-delay-3">
-        <span class="sentencia-badge mb-4 block">Litigio constitucional — Tutela</span>
-        <h3 class="font-serif text-ab-stone text-lg font-light mb-3">Tutela por mínimo vital — Madre cabeza de familia</h3>
-        <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Trabajadora despedida durante periodo de lactancia sin el procedimiento especial de protección. Tutela concedida en 24 horas, con reintegro inmediato y reconocimiento de la vulneración al mínimo vital y a los derechos del menor.</p>
-        <div class="border-t border-ab-border pt-4 flex items-center justify-between">
-          <span class="font-sans text-ab-tan text-xs">Corte Constitucional</span>
-          <a href="mailto:abogados@arenasbetancur.com?subject=Consulta sobre caso tutela madre cabeza" class="font-sans text-ab-tan text-xs hover:text-ab-tan2 tracking-wide transition-colors">Ver sentencia →</a>
+
+      <!-- CASO 3 -->
+      <div class="victory-card rounded-sm reveal reveal-delay-1">
+        <div class="victory-icon">
+          <span class="case-number">03</span>
+          <div class="case-icon">🩺</div>
+        </div>
+        <div class="victory-content">
+          <span class="sentencia-badge mb-3 block">Seguridad social — Calificación PCL</span>
+          <h3 class="font-serif text-ab-stone text-xl font-light mb-2">Olga Isaza vs. Colpensiones</h3>
+          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-tan">Tribunal Superior de Medellín · Sala Penal · Sentencia 2025-94</strong></p>
+          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Se revocó fallo de primera instancia y se ordenó a Colpensiones realizar la calificación de pérdida de capacidad laboral, tras obstruir el trámite exigiendo documentación adicional pese a expediente médico de más de 140 folios.</p>
+          <a href="sentencias/3-olga-isaza-vs-colpensiones-pericia.pdf" target="_blank" class="victory-btn">📄 Ver Sentencia Completa →</a>
         </div>
       </div>
+
+      <!-- CASO 4 -->
+      <div class="victory-card rounded-sm reveal reveal-delay-1">
+        <div class="victory-icon">
+          <span class="case-number">04</span>
+          <div class="case-icon">🛡️</div>
+        </div>
+        <div class="victory-content">
+          <span class="sentencia-badge mb-3 block">Estabilidad reforzada — Acoso laboral</span>
+          <h3 class="font-serif text-ab-stone text-xl font-light mb-2">Stephanie Henao vs. Banco Agrario</h3>
+          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-tan">Tribunal Superior de Manizales · Sala Penal · 2025</strong></p>
+          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Se concedió tutela y se ordenó reintegro inmediato. El Banco Agrario despidió a la trabajadora mientras recibía tratamiento psiquiátrico por ansiedad severa causada por acoso laboral, sin autorización del Ministerio de Trabajo.</p>
+          <a href="sentencias/4-henao-vs-banco-agrario-reintegro.pdf" target="_blank" class="victory-btn">📄 Ver Sentencia Completa →</a>
+        </div>
+      </div>
+
+      <!-- CASO 5 -->
+      <div class="victory-card rounded-sm reveal reveal-delay-1">
+        <div class="victory-icon">
+          <span class="case-number">05</span>
+          <div class="case-icon">🏥</div>
+        </div>
+        <div class="victory-content">
+          <span class="sentencia-badge mb-3 block">Estabilidad reforzada — Salud</span>
+          <h3 class="font-serif text-ab-stone text-xl font-light mb-2">Guillermo Cohen vs. Banco Agrario</h3>
+          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-tan">Tribunal Superior de Cartagena · Sala Civil-Familia · 2025</strong></p>
+          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Trabajador desvinculado estando en licencia médica tras cirugía renal. Se impugnó la decisión por violación al derecho de estabilidad laboral reforzada al no contar con autorización ministerial para el despido.</p>
+          <a href="sentencias/5-cohen-vs-banco-agrario-reintegro.pdf" target="_blank" class="victory-btn">📄 Ver Sentencia Completa →</a>
+        </div>
+      </div>
+
+      <!-- CASO 6 -->
+      <div class="victory-card rounded-sm reveal reveal-delay-1">
+        <div class="victory-icon">
+          <span class="case-number">06</span>
+          <div class="case-icon">✊</div>
+        </div>
+        <div class="victory-content">
+          <span class="sentencia-badge mb-3 block">Derecho colectivo — Huelga virtual</span>
+          <h3 class="font-serif text-ab-stone text-xl font-light mb-2">Utesfincol vs. Banco Agrario</h3>
+          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-tan">Tribunal Superior de Manizales · Sala Laboral · Segunda Instancia</strong></p>
+          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">El Banco Agrario se negó a negociar de buena fe la convención colectiva y denegó al sindicato canal de comunicación y plataforma virtual para votación de huelga en plena pandemia COVID-19. Tutela concedida.</p>
+          <a href="sentencias/6-utesfincol-vs-banco-agrario-huelga.pdf" target="_blank" class="victory-btn">📄 Ver Sentencia Completa →</a>
+        </div>
+      </div>
+
+      <!-- CASO 7 -->
+      <div class="victory-card rounded-sm reveal reveal-delay-1">
+        <div class="victory-icon">
+          <span class="case-number">07</span>
+          <div class="case-icon">📡</div>
+        </div>
+        <div class="victory-content">
+          <span class="sentencia-badge mb-3 block">Derecho sindical — Comunicación</span>
+          <h3 class="font-serif text-ab-stone text-xl font-light mb-2">USEF SI vs. Banco Agrario</h3>
+          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-tan">Tribunal Administrativo de Caldas · Sala Sexta de Decisión</strong></p>
+          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Se protegieron los derechos de petición, libre asociación y libertad de expresión sindical. El sindicato USEFSI solicitó correo corporativo y espacio web para publicar información sindical. Tutela confirmada.</p>
+          <a href="sentencias/7-usef-si-vs-banco-agrario-comunicacion.pdf" target="_blank" class="victory-btn">📄 Ver Sentencia Completa →</a>
+        </div>
+      </div>
+
+      <!-- CASO 8 -->
+      <div class="victory-card rounded-sm reveal reveal-delay-1">
+        <div class="victory-icon">
+          <span class="case-number">08</span>
+          <div class="case-icon">📋</div>
+        </div>
+        <div class="victory-content">
+          <span class="sentencia-badge mb-3 block">Información pública — Insistencia</span>
+          <h3 class="font-serif text-ab-stone text-xl font-light mb-2">Arenas vs. Banco Agrario</h3>
+          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-tan">Tribunal Administrativo de Cundinamarca · Sección Primera</strong></p>
+          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Recurso de insistencia ante negativa del Banco Agrario de entregar información estadística sobre trabajadores oficiales, invocando reserva legal. Análisis bajo Ley 1755 de 2015 sobre acceso a información pública.</p>
+          <a href="sentencias/8-arenas-vs-banco-agrario-información.pdf" target="_blank" class="victory-btn">📄 Ver Sentencia Completa →</a>
+        </div>
+      </div>
+
+      <!-- CASO 9 -->
+      <div class="victory-card rounded-sm reveal reveal-delay-1">
+        <div class="victory-icon">
+          <span class="case-number">09</span>
+          <div class="case-icon">📊</div>
+        </div>
+        <div class="victory-content">
+          <span class="sentencia-badge mb-3 block">Seguridad social — Semanas cotizadas</span>
+          <h3 class="font-serif text-ab-stone text-xl font-light mb-2">Luz Molina vs. Colpensiones</h3>
+          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-tan">Tribunal Superior de Manizales · Sala Penal</strong></p>
+          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Tutela por mora judicial e inclusión de semanas de cotización (1985–1987) no reportadas por el empleador. Se protegieron derechos de petición y habeas data, ordenando a Colpensiones corregir la historia laboral.</p>
+          <a href="sentencias/9-molina-vs-colpensiones-semanas.pdf" target="_blank" class="victory-btn">📄 Ver Sentencia Completa →</a>
+        </div>
+      </div>
+
+      <!-- CASO 10 -->
+      <div class="victory-card rounded-sm reveal reveal-delay-1">
+        <div class="victory-icon">
+          <span class="case-number">10</span>
+          <div class="case-icon">🔒</div>
+        </div>
+        <div class="victory-content">
+          <span class="sentencia-badge mb-3 block">Derecho constitucional — Derecho al olvido</span>
+          <h3 class="font-serif text-ab-stone text-xl font-light mb-2">Juan Vázquez vs. Fiscalía</h3>
+          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-tan">Corte Suprema de Justicia · Sala de Tutelas · STP9737-2022</strong></p>
+          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-5">Tutela por derecho al olvido digital. Se solicitó el bloqueo y eliminación de antecedentes penales de 2006 publicados en plataformas de la Rama Judicial que no correspondían al accionante, afectando sus derechos a la igualdad y al trabajo.</p>
+          <a href="sentencias/10-vazquez-vs-fiscalia-olvido.pdf" target="_blank" class="victory-btn">📄 Ver Sentencia Completa →</a>
+        </div>
+      </div>
+
     </div>
-    <div class="mt-10 text-center reveal">
-      <a href="mailto:abogados@arenasbetancur.com?subject=Quiero conocer más casos de éxito" class="btn-outline px-8 py-3 text-xs tracking-widest uppercase inline-block">Consultar más casos →</a>
+
+    <div class="mt-12 text-center reveal">
+      <a href="mailto:abogados@arenasbetancur.com?subject=Quiero conocer más sobre los casos de la firma" class="btn-outline px-8 py-3 text-xs tracking-widest uppercase inline-block">Consultar sobre nuestros casos →</a>
     </div>
   </div>
 </section>
