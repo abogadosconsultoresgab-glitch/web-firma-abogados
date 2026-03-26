@@ -413,6 +413,59 @@
     transition: all .2s; cursor: pointer;
   }
   .btn-similar:hover { background: rgba(177,152,133,.1); border-color: #B19885; }
+
+  /* ── Calculadora de Caso (Wizard) ── */
+  .wizard-container { max-width: 680px; margin: 0 auto; }
+  .wizard-step { display: none; animation: wizardFade .4s ease; }
+  .wizard-step.active { display: block; }
+  @keyframes wizardFade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  .wizard-progress { display: flex; gap: 4px; margin-bottom: 2rem; }
+  .wizard-progress-dot {
+    flex: 1; height: 3px; border-radius: 2px;
+    background: rgba(177,152,133,.15); transition: background .3s;
+  }
+  .wizard-progress-dot.done { background: #B19885; }
+  .wizard-progress-dot.current { background: rgba(177,152,133,.5); }
+  .wizard-option {
+    display: block; width: 100%;
+    padding: 1.2rem 1.5rem; margin-bottom: .6rem;
+    background: rgba(70,48,46,.1);
+    border: 1px solid rgba(177,152,133,.2);
+    border-radius: 4px;
+    color: #F5F0EB; font-family: 'Jost', sans-serif; font-size: .9rem;
+    text-align: left; cursor: pointer;
+    transition: all .25s;
+  }
+  .wizard-option:hover {
+    border-color: #B19885;
+    background: rgba(70,48,46,.25);
+    transform: translateX(4px);
+  }
+  .wizard-option.selected {
+    border-color: #B19885;
+    background: rgba(177,152,133,.15);
+  }
+  .wizard-result {
+    padding: 2rem;
+    border: 1px solid rgba(177,152,133,.3);
+    border-radius: 6px;
+    background: rgba(70,48,46,.12);
+  }
+  .wizard-result-badge {
+    display: inline-block; padding: .4rem 1rem;
+    border-radius: 20px; font-size: .7rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .urgency-alta { background: rgba(220,80,60,.2); color: #E85D4A; border: 1px solid rgba(220,80,60,.3); }
+  .urgency-media { background: rgba(230,180,50,.2); color: #E6B432; border: 1px solid rgba(230,180,50,.3); }
+  .urgency-normal { background: rgba(80,180,120,.2); color: #50B478; border: 1px solid rgba(80,180,120,.3); }
+  .wizard-back {
+    background: none; border: none; color: #B19885;
+    font-family: 'Jost', sans-serif; font-size: .8rem;
+    cursor: pointer; padding: .5rem 0; margin-top: 1rem;
+    letter-spacing: .06em;
+  }
+  .wizard-back:hover { color: #C9AA8F; }
 </style>
 </head>
 <body>
@@ -1090,6 +1143,98 @@
 
 <div class="sep"></div>
 
+<!-- ═══════════ CALCULADORA DE CASO ═══════════ -->
+<section id="calculadora" class="py-24 px-6 md:px-12" style="background:#1F1515">
+  <div class="max-w-5xl mx-auto text-center">
+    <p class="text-ab-beige text-xs tracking-widest uppercase font-sans mb-4 reveal">Evaluaci&oacute;n preliminar gratuita</p>
+    <h2 class="font-serif font-medium text-ab-cream text-4xl leading-tight mb-4 reveal reveal-delay-1">&iquest;Tienes protecci&oacute;n<br><em class="ab-accent not-italic">laboral?</em></h2>
+    <p class="font-sans font-light text-ab-muted text-sm mb-14 reveal reveal-delay-2" style="max-width:540px;margin:0 auto">Responde 4 preguntas y descubre si tienes alg&uacute;n fuero o protecci&oacute;n legal. Evaluaci&oacute;n orientativa &mdash; no constituye asesor&iacute;a legal formal.</p>
+
+    <div class="wizard-container reveal reveal-delay-3">
+      <!-- Progress bar -->
+      <div class="wizard-progress" id="wizardProgress">
+        <div class="wizard-progress-dot current"></div>
+        <div class="wizard-progress-dot"></div>
+        <div class="wizard-progress-dot"></div>
+        <div class="wizard-progress-dot"></div>
+      </div>
+
+      <!-- PASO 1: Situación actual -->
+      <div class="wizard-step active" id="step1">
+        <p class="font-serif text-ab-cream text-xl mb-6 text-left">&iquest;Cu&aacute;l es tu situaci&oacute;n actual?</p>
+        <button class="wizard-option" onclick="wizardSelect(1,'despedido')">Me despidieron o est&aacute;n por despedirme</button>
+        <button class="wizard-option" onclick="wizardSelect(1,'renunciar')">Me quieren obligar a renunciar</button>
+        <button class="wizard-option" onclick="wizardSelect(1,'acoso')">Sufro acoso laboral en mi trabajo</button>
+        <button class="wizard-option" onclick="wizardSelect(1,'no_pago')">No me pagaron lo que me deben (liquidaci&oacute;n, cesant&iacute;as, salario)</button>
+        <button class="wizard-option" onclick="wizardSelect(1,'contrato')">Trabajo con contrato de prestaci&oacute;n de servicios pero creo que es un contrato laboral real</button>
+        <button class="wizard-option" onclick="wizardSelect(1,'sindical')">Necesito asesor&iacute;a sindical o de negociaci&oacute;n colectiva</button>
+        <button class="wizard-option" onclick="wizardSelect(1,'pension')">Tengo un problema con mi pensi&oacute;n o seguridad social</button>
+        <button class="wizard-option" onclick="wizardSelect(1,'otro')">Otro problema laboral</button>
+      </div>
+
+      <!-- PASO 2: Condición protegida -->
+      <div class="wizard-step" id="step2">
+        <p class="font-serif text-ab-cream text-xl mb-2 text-left">&iquest;Tienes alguna de estas condiciones?</p>
+        <p class="font-sans text-ab-muted text-xs mb-6 text-left">Puedes seleccionar varias. Si no aplica ninguna, selecciona la &uacute;ltima opci&oacute;n.</p>
+        <button class="wizard-option" onclick="wizardToggle(this,'salud')">&#129658; Tengo una condici&oacute;n de salud, discapacidad o estoy incapacitado</button>
+        <button class="wizard-option" onclick="wizardToggle(this,'embarazo')">&#129328; Estoy embarazada o en periodo de lactancia</button>
+        <button class="wizard-option" onclick="wizardToggle(this,'madre_cabeza')">&#128105; Soy madre cabeza de familia</button>
+        <button class="wizard-option" onclick="wizardToggle(this,'padre_cabeza')">&#128104; Soy padre cabeza de familia</button>
+        <button class="wizard-option" onclick="wizardToggle(this,'prepension')">&#128200; Estoy a 3 a&ntilde;os o menos de pensionarme</button>
+        <button class="wizard-option" onclick="wizardToggle(this,'sindicalizado')">&#9994; Soy miembro o dirigente de un sindicato</button>
+        <button class="wizard-option" onclick="wizardToggle(this,'victima_acoso')">&#128680; Present&eacute; queja formal de acoso laboral</button>
+        <button class="wizard-option" onclick="wizardToggle(this,'ninguna')">Ninguna de las anteriores</button>
+        <div class="text-right mt-4">
+          <button class="wizard-back" onclick="wizardBack()">&larr; Volver</button>
+          <button class="btn-primary px-6 py-2.5 text-xs tracking-widest uppercase rounded-sm ml-4" onclick="wizardNext(2)">Siguiente &rarr;</button>
+        </div>
+      </div>
+
+      <!-- PASO 3: Tiempo -->
+      <div class="wizard-step" id="step3">
+        <p class="font-serif text-ab-cream text-xl mb-6 text-left">&iquest;Hace cu&aacute;nto ocurri&oacute; o est&aacute; ocurriendo?</p>
+        <button class="wizard-option" onclick="wizardSelect(3,'ahora')">Est&aacute; ocurriendo ahora mismo</button>
+        <button class="wizard-option" onclick="wizardSelect(3,'dias')">Hace menos de 1 semana</button>
+        <button class="wizard-option" onclick="wizardSelect(3,'mes')">Hace menos de 1 mes</button>
+        <button class="wizard-option" onclick="wizardSelect(3,'meses')">Hace 1 a 6 meses</button>
+        <button class="wizard-option" onclick="wizardSelect(3,'mucho')">Hace m&aacute;s de 6 meses</button>
+        <button class="wizard-back" onclick="wizardBack()">&larr; Volver</button>
+      </div>
+
+      <!-- PASO 4: Ciudad -->
+      <div class="wizard-step" id="step4">
+        <p class="font-serif text-ab-cream text-xl mb-6 text-left">&iquest;En qu&eacute; ciudad trabajas o trabajabas?</p>
+        <button class="wizard-option" onclick="wizardSelect(4,'medellin')">Medell&iacute;n / &Aacute;rea Metropolitana</button>
+        <button class="wizard-option" onclick="wizardSelect(4,'manizales')">Manizales / Eje Cafetero</button>
+        <button class="wizard-option" onclick="wizardSelect(4,'bogota')">Bogot&aacute;</button>
+        <button class="wizard-option" onclick="wizardSelect(4,'otra')">Otra ciudad de Colombia</button>
+        <button class="wizard-back" onclick="wizardBack()">&larr; Volver</button>
+      </div>
+
+      <!-- RESULTADO -->
+      <div class="wizard-step" id="stepResult">
+        <div class="wizard-result text-left">
+          <div id="resultBadge"></div>
+          <h3 class="font-serif text-ab-cream text-2xl font-medium mb-3" id="resultTitle"></h3>
+          <p class="font-sans text-ab-muted text-sm leading-relaxed mb-4" id="resultText"></p>
+          <div id="resultFueros" class="mb-5"></div>
+          <p class="font-sans text-ab-muted text-xs mb-6" style="opacity:.7">Esta evaluaci&oacute;n es orientativa y no constituye asesor&iacute;a legal formal. Cada caso requiere an&aacute;lisis particular.</p>
+          <div class="flex flex-wrap gap-3">
+            <a id="resultWhatsApp" href="#" target="_blank" class="btn-primary px-6 py-3 text-xs tracking-widest uppercase rounded-sm inline-flex items-center gap-2">
+              <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+              Asesor&iacute;a por WhatsApp
+            </a>
+            <button onclick="openModal('Evaluaci&oacute;n de caso','Resultado de calculadora')" class="btn-outline px-6 py-3 text-xs tracking-widest uppercase rounded-sm">Agendar consulta formal</button>
+          </div>
+          <button class="wizard-back mt-4" onclick="wizardReset()">&#8634; Evaluar otro caso</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
 <!-- ═══════════ FAQ — PREGUNTAS FRECUENTES ═══════════ -->
 <section id="faq" class="py-24 px-6 md:px-12" style="background:#1F1515">
   <div class="max-w-5xl mx-auto">
@@ -1526,6 +1671,149 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
   });
+
+  // ═══════ CALCULADORA DE CASO (WIZARD) ═══════
+  var wizardData = { step1: '', step2: [], step3: '', step4: '' };
+  var wizardCurrentStep = 1;
+
+  function wizardSelect(step, value) {
+    wizardData['step' + step] = value;
+    if (step === 1) { wizardData.step2 = []; wizardGoTo(2); }
+    else if (step === 3) { wizardGoTo(4); }
+    else if (step === 4) { wizardShowResult(); }
+  }
+
+  function wizardToggle(btn, value) {
+    if (value === 'ninguna') {
+      wizardData.step2 = ['ninguna'];
+      document.querySelectorAll('#step2 .wizard-option').forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      return;
+    }
+    var idx = wizardData.step2.indexOf(value);
+    var nIdx = wizardData.step2.indexOf('ninguna');
+    if (nIdx > -1) { wizardData.step2.splice(nIdx, 1); document.querySelectorAll('#step2 .wizard-option').forEach(function(b) { if (b.textContent.indexOf('Ninguna') > -1) b.classList.remove('selected'); }); }
+    if (idx > -1) { wizardData.step2.splice(idx, 1); btn.classList.remove('selected'); }
+    else { wizardData.step2.push(value); btn.classList.add('selected'); }
+  }
+
+  function wizardNext(step) {
+    if (step === 2 && wizardData.step2.length === 0) return;
+    wizardGoTo(step + 1);
+  }
+
+  function wizardBack() {
+    if (wizardCurrentStep > 1) wizardGoTo(wizardCurrentStep - 1);
+  }
+
+  function wizardGoTo(step) {
+    wizardCurrentStep = step;
+    document.querySelectorAll('.wizard-step').forEach(function(s) { s.classList.remove('active'); });
+    var targetId = step <= 4 ? 'step' + step : 'stepResult';
+    document.getElementById(targetId).classList.add('active');
+    var dots = document.querySelectorAll('.wizard-progress-dot');
+    dots.forEach(function(d, i) {
+      d.className = 'wizard-progress-dot';
+      if (i < step - 1) d.classList.add('done');
+      else if (i === step - 1) d.classList.add('current');
+    });
+  }
+
+  function wizardReset() {
+    wizardData = { step1: '', step2: [], step3: '', step4: '' };
+    wizardCurrentStep = 1;
+    document.querySelectorAll('.wizard-option').forEach(function(b) { b.classList.remove('selected'); });
+    wizardGoTo(1);
+  }
+
+  function wizardShowResult() {
+    var fueros = [];
+    var urgency = 'normal';
+    var title = '';
+    var text = '';
+    var s1 = wizardData.step1;
+    var s2 = wizardData.step2;
+    var s3 = wizardData.step3;
+
+    // Detect fueros from step2
+    if (s2.indexOf('salud') > -1) fueros.push({ name: 'Fuero de Salud', law: 'L.361/1997, Art. 26 \u2014 SU-049/2017', desc: 'No pueden despedirte sin autorizaci\u00f3n del Ministerio de Trabajo mientras tengas una condici\u00f3n de salud que afecte tu capacidad laboral.' });
+    if (s2.indexOf('embarazo') > -1) fueros.push({ name: 'Fuero de Maternidad', law: 'Art. 239-241 CST', desc: 'Protecci\u00f3n durante el embarazo y hasta 3 meses despu\u00e9s del parto. El despido sin autorizaci\u00f3n es nulo.' });
+    if (s2.indexOf('madre_cabeza') > -1) fueros.push({ name: 'Fuero de Madre Cabeza de Familia', law: 'L.1232/2008 \u2014 T-388/2005', desc: 'Si eres responsable \u00fanica del hogar con hijos menores o personas a cargo, tienes estabilidad laboral reforzada.' });
+    if (s2.indexOf('padre_cabeza') > -1) fueros.push({ name: 'Fuero de Padre Cabeza de Familia', law: 'SU-389/2005', desc: 'Si eres responsable \u00fanico del hogar con hijos menores, tienes protecci\u00f3n similar al fuero de madre cabeza de familia.' });
+    if (s2.indexOf('prepension') > -1) fueros.push({ name: 'Fuero de Prepensionado', law: 'Jurisprudencia Corte Constitucional', desc: 'Si est\u00e1s a 3 a\u00f1os o menos de cumplir requisitos para pensi\u00f3n de vejez, no pueden desvincularte.' });
+    if (s2.indexOf('sindicalizado') > -1) fueros.push({ name: 'Fuero Sindical', law: 'Art. 405-411 CST', desc: 'Como miembro o dirigente sindical, necesitan autorizaci\u00f3n judicial para despedirte, trasladarte o desmejorarte.' });
+    if (s2.indexOf('victima_acoso') > -1) fueros.push({ name: 'Fuero por Acoso Laboral', law: 'L.1010/2006, Art. 11', desc: 'Protecci\u00f3n de 6 meses desde la queja formal. El despido durante este periodo carece de efecto.' });
+
+    // Determine urgency and messaging
+    if (fueros.length > 0 && (s1 === 'despedido' || s1 === 'renunciar')) {
+      urgency = 'alta';
+      title = 'Alerta: Posible violaci\u00f3n de estabilidad laboral reforzada';
+      text = 'Seg\u00fan tus respuestas, podr\u00edas tener ' + fueros.length + ' fuero(s) de protecci\u00f3n laboral. Si te despidieron o te presionan a renunciar estando protegido, el despido podr\u00eda ser declarado nulo con derecho a reintegro y pago de salarios ca\u00eddos.';
+    } else if (fueros.length > 0) {
+      urgency = 'media';
+      title = 'Tienes protecci\u00f3n laboral activa';
+      text = 'Seg\u00fan tus respuestas, cuentas con ' + fueros.length + ' fuero(s) de estabilidad laboral reforzada. Es importante que tu empleador conozca tu situaci\u00f3n y que cuentes con asesor\u00eda para hacer valer tu protecci\u00f3n.';
+    } else if (s1 === 'despedido') {
+      urgency = 'media';
+      title = 'Despido sin fuero especial';
+      text = 'Aunque no se identific\u00f3 un fuero de estabilidad reforzada, podr\u00edas tener derecho a indemnizaci\u00f3n por despido sin justa causa (Art. 64 CST). Tambi\u00e9n se debe verificar que se hayan pagado todas las prestaciones y liquidaci\u00f3n.';
+    } else if (s1 === 'no_pago') {
+      urgency = 'media';
+      title = 'Posible incumplimiento del empleador';
+      text = 'El no pago de salarios, cesant\u00edas, liquidaci\u00f3n o prestaciones sociales es una violaci\u00f3n al C\u00f3digo Sustantivo del Trabajo. Podr\u00edas tener derecho a indemnizaci\u00f3n moratoria y al cobro judicial de lo adeudado.';
+    } else if (s1 === 'contrato') {
+      urgency = 'media';
+      title = 'Posible contrato realidad';
+      text = 'Si trabajas bajo \u00f3rdenes, horario fijo y subordinaci\u00f3n, aunque tu contrato diga "prestaci\u00f3n de servicios", podr\u00eda existir un contrato laboral en la realidad (Art. 23-24 CST). Tendr\u00edas derecho a todas las prestaciones sociales que no te pagaron.';
+    } else if (s1 === 'acoso') {
+      urgency = 'media';
+      title = 'Posible situaci\u00f3n de acoso laboral';
+      text = 'La Ley 1010 de 2006 protege a los trabajadores contra el acoso laboral. Puedes presentar queja ante el Comit\u00e9 de Convivencia Laboral y, una vez radicada, obtienes protecci\u00f3n de 6 meses contra despido.';
+    } else if (s1 === 'sindical') {
+      urgency = 'normal';
+      title = 'Asesor\u00eda sindical disponible';
+      text = 'Somos asesores de m\u00faltiples organizaciones sindicales en Colombia. Podemos ayudarte con negociaci\u00f3n colectiva, convenciones, huelga, fuero sindical y denuncias ante CETCOIT.';
+    } else if (s1 === 'pension') {
+      urgency = 'normal';
+      title = 'Revisi\u00f3n de derechos pensionales';
+      text = 'Podemos evaluar tu historia laboral, semanas cotizadas, y verificar si tienes derecho a pensi\u00f3n de vejez, sobrevivientes, pensi\u00f3n sanci\u00f3n o si Colpensiones ha negado injustamente tu derecho.';
+    } else {
+      urgency = 'normal';
+      title = 'Evaluaci\u00f3n preliminar completada';
+      text = 'Basado en tus respuestas, te recomendamos una consulta personalizada para analizar tu situaci\u00f3n espec\u00edfica. Cada caso laboral tiene particularidades que requieren revisi\u00f3n individual.';
+    }
+
+    // Time urgency modifier
+    if ((s3 === 'ahora' || s3 === 'dias') && urgency !== 'alta') urgency = urgency === 'normal' ? 'media' : 'alta';
+
+    // Render result
+    var badgeText = urgency === 'alta' ? 'Urgencia Alta \u2014 Acci\u00f3n inmediata recomendada' : urgency === 'media' ? 'Prioridad Media \u2014 Consulta recomendada' : 'Consulta disponible';
+    document.getElementById('resultBadge').innerHTML = '<span class="wizard-result-badge urgency-' + urgency + '">' + badgeText + '</span>';
+    document.getElementById('resultTitle').textContent = title;
+    document.getElementById('resultText').textContent = text;
+
+    var fuerosHtml = '';
+    if (fueros.length > 0) {
+      fuerosHtml = '<p class="font-sans text-ab-beige text-xs tracking-widest uppercase mb-3">Protecciones identificadas:</p>';
+      fueros.forEach(function(f) {
+        fuerosHtml += '<div style="padding:.8rem 1rem;margin-bottom:.5rem;background:rgba(177,152,133,.08);border:1px solid rgba(177,152,133,.15);border-radius:4px">';
+        fuerosHtml += '<p class="font-sans text-ab-cream text-sm font-medium">' + f.name + '</p>';
+        fuerosHtml += '<p class="font-sans text-ab-beige text-xs" style="opacity:.7">' + f.law + '</p>';
+        fuerosHtml += '<p class="font-sans text-ab-muted text-xs mt-1">' + f.desc + '</p>';
+        fuerosHtml += '</div>';
+      });
+    }
+    document.getElementById('resultFueros').innerHTML = fuerosHtml;
+
+    // Build WhatsApp message
+    var waMsg = 'Buenas, acabo de usar la calculadora de caso en arenasbetancur.com. ';
+    waMsg += 'Resultado: ' + title + '. ';
+    if (fueros.length > 0) waMsg += 'Fueros identificados: ' + fueros.map(function(f) { return f.name; }).join(', ') + '. ';
+    waMsg += 'Necesito asesor\u00eda.';
+    document.getElementById('resultWhatsApp').href = 'https://wa.me/573166349332?text=' + encodeURIComponent(waMsg);
+
+    wizardGoTo(5);
+  }
 </script>
 </body>
 </html>
