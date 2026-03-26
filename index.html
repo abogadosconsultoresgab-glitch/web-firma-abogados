@@ -241,6 +241,82 @@
     .whatsapp-float span { display: none; }
     .whatsapp-float { padding: 1rem; border-radius: 50%; }
   }
+
+  /* ── Acordeón de Áreas ── */
+  .area-pill { cursor: pointer; user-select: none; }
+  .area-pill .chevron-icon { transition: transform .3s ease; }
+  .area-pill.active .chevron-icon { transform: rotate(90deg); }
+  .area-pill.active { border-color: #B19885; background: rgba(70,48,46,.2); }
+
+  .area-processes {
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height .4s ease, opacity .3s ease, padding .3s ease;
+    padding: 0 1rem;
+  }
+  .area-processes.open {
+    max-height: 2000px; opacity: 1;
+    padding: .8rem 1rem 1.2rem;
+  }
+
+  .process-btn {
+    display: flex; align-items: center; gap: .8rem;
+    width: 100%; text-align: left;
+    padding: .85rem 1.2rem;
+    background: rgba(27,18,18,.5);
+    border: 1px solid rgba(177,152,133,.12);
+    color: #F5F0EB;
+    font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 300;
+    cursor: pointer; transition: all .25s; border-radius: 3px;
+  }
+  .process-btn:hover {
+    border-color: #B19885;
+    background: rgba(70,48,46,.2);
+    transform: translateX(4px);
+  }
+  .process-btn .dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: #B19885; flex-shrink: 0;
+  }
+
+  /* ── Modal de Consulta ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,.7); backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s ease;
+    padding: 1rem;
+  }
+  .modal-overlay.active { opacity: 1; pointer-events: all; }
+
+  .modal-box {
+    background: #1B1212; border: 1px solid rgba(177,152,133,.25);
+    border-radius: 6px; width: 100%; max-width: 520px;
+    max-height: 90vh; overflow-y: auto;
+    padding: 2.5rem 2rem;
+    transform: translateY(20px); transition: transform .3s ease;
+  }
+  .modal-overlay.active .modal-box { transform: translateY(0); }
+
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: none; border: none; color: #9A8B86;
+    font-size: 1.5rem; cursor: pointer; line-height: 1;
+    transition: color .2s;
+  }
+  .modal-close:hover { color: #F5F0EB; }
+
+  .btn-whatsapp {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    width: 100%; padding: .85rem;
+    background: #25D366; color: white;
+    font-family: 'Jost', sans-serif; font-size: .8rem; font-weight: 500;
+    letter-spacing: .08em; text-transform: uppercase;
+    border: none; border-radius: 3px; cursor: pointer;
+    transition: background .2s, transform .15s;
+    text-decoration: none;
+  }
+  .btn-whatsapp:hover { background: #1ebe57; transform: translateY(-1px); }
 </style>
 </head>
 <body>
@@ -481,71 +557,177 @@
 
 <div class="sep"></div>
 
-<!-- ═══════════ ÁREAS — PÍLDORAS HORIZONTALES ═══════════ -->
+<!-- ═══════════ ÁREAS — ACORDEÓN EXPANDIBLE ═══════════ -->
 <section id="areas" class="py-24 px-6 md:px-12" style="background:#1F1515">
   <div class="max-w-5xl mx-auto">
     <p class="text-ab-beige text-xs tracking-widest uppercase font-sans mb-4 reveal">Áreas de especialidad</p>
     <h2 class="font-serif font-medium text-ab-cream text-4xl leading-tight mb-4 reveal reveal-delay-1">Cada derecho vulnerado<br><em class="ab-accent not-italic">tiene un camino legal</em></h2>
-    <p class="font-sans font-light text-ab-muted text-sm mb-14 reveal reveal-delay-2" style="max-width:520px">Cuatro frentes jur&iacute;dicos con profundidad t&eacute;cnica y jurisprudencial al servicio de quienes m&aacute;s lo necesitan.</p>
+    <p class="font-sans font-light text-ab-muted text-sm mb-14 reveal reveal-delay-2" style="max-width:560px">Cuatro frentes jur&iacute;dicos. Haz clic en un &aacute;rea para ver los procesos disponibles y solicitar asesor&iacute;a.</p>
 
-    <!-- Píldoras horizontales apiladas -->
     <div class="flex flex-col gap-4">
 
-      <div class="area-pill reveal reveal-delay-1">
-        <div class="area-pill-icon">
-          <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3v18m0 0l-4-4m4 4l4-4M3 8h18"/><circle cx="12" cy="6" r="2"/></svg>
+      <!-- ── DERECHO LABORAL ── -->
+      <div>
+        <div class="area-pill reveal reveal-delay-1" onclick="toggleArea(this)">
+          <div class="area-pill-icon">
+            <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-ab-cream text-xl font-medium mb-1">Derecho Laboral</h3>
+            <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Gestionamos reclamaciones y defendemos derechos laborales en procedimientos judiciales y administrativos.</p>
+          </div>
+          <div class="text-ab-beige opacity-40 chevron-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
         </div>
-        <div class="flex-1">
-          <h3 class="font-serif text-ab-cream text-xl font-medium mb-2">Derecho Sindical</h3>
-          <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Asesoramos y respaldamos la estrategia legal de las organizaciones sindicales.</p>
-        </div>
-        <div class="hidden md:block text-ab-beige opacity-30">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-
-      <div class="area-pill reveal reveal-delay-2">
-        <div class="area-pill-icon">
-          <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        </div>
-        <div class="flex-1">
-          <h3 class="font-serif text-ab-cream text-xl font-medium mb-2">Seguridad Social</h3>
-          <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Exigimos la garant&iacute;a de los derechos pensionales de los trabajadores.</p>
-        </div>
-        <div class="hidden md:block text-ab-beige opacity-30">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-
-      <div class="area-pill reveal reveal-delay-3">
-        <div class="area-pill-icon">
-          <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
-        </div>
-        <div class="flex-1">
-          <h3 class="font-serif text-ab-cream text-xl font-medium mb-2">Derecho Constitucional</h3>
-          <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Brindamos estrategias jur&iacute;dicas especializadas con derechos de petici&oacute;n y acciones de tutela.</p>
-        </div>
-        <div class="hidden md:block text-ab-beige opacity-30">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        <div class="area-processes">
+          <div class="grid gap-2 pt-2">
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Reintegro por fuero de madre cabeza de familia')"><span class="dot"></span>Reintegro por fuero de madre cabeza de familia</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Reintegro por fuero de salud')"><span class="dot"></span>Reintegro por fuero de salud</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Reintegro por fuero de padre cabeza de familia')"><span class="dot"></span>Reintegro por fuero de padre cabeza de familia</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Demanda por pago de liquidaciones')"><span class="dot"></span>Demanda por pago de liquidaciones</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Demanda por horas extras')"><span class="dot"></span>Demanda por horas extras</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Demandas por contratos de trabajo verbal')"><span class="dot"></span>Demandas por contratos de trabajo verbal</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Demandas por no pago de salarios')"><span class="dot"></span>Demandas por no pago de salarios</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Demandas por despidos injustificados')"><span class="dot"></span>Demandas por despidos injustificados</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Demandas por acoso laboral')"><span class="dot"></span>Demandas por acoso laboral</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Demanda por incumplimiento en cesant&iacute;as e intereses')"><span class="dot"></span>Demanda por incumplimiento en cesant&iacute;as e intereses</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Demanda por renuncia motivada')"><span class="dot"></span>Demanda por renuncia motivada</button>
+            <button class="process-btn" onclick="openModal('Derecho Laboral','Cobro de incapacidades laborales')"><span class="dot"></span>Cobro de incapacidades laborales</button>
+          </div>
         </div>
       </div>
 
-      <div class="area-pill reveal reveal-delay-4">
-        <div class="area-pill-icon">
-          <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+      <!-- ── DERECHO SINDICAL ── -->
+      <div>
+        <div class="area-pill reveal reveal-delay-2" onclick="toggleArea(this)">
+          <div class="area-pill-icon">
+            <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3v18m0 0l-4-4m4 4l4-4M3 8h18"/><circle cx="12" cy="6" r="2"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-ab-cream text-xl font-medium mb-1">Derecho Sindical</h3>
+            <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Asesoramos y respaldamos la estrategia legal de las organizaciones sindicales.</p>
+          </div>
+          <div class="text-ab-beige opacity-40 chevron-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
         </div>
-        <div class="flex-1">
-          <h3 class="font-serif text-ab-cream text-xl font-medium mb-2">Derecho Laboral</h3>
-          <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Gestionamos reclamaciones y defendemos derechos laborales en procedimientos judiciales y administrativos.</p>
+        <div class="area-processes">
+          <div class="grid gap-2 pt-2">
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Demandas ejecutivas de la Convenci&oacute;n Colectiva de Trabajo')"><span class="dot"></span>Demandas ejecutivas de la Convenci&oacute;n Colectiva de Trabajo</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Demandas por da&ntilde;os a la organizaci&oacute;n sindical')"><span class="dot"></span>Demandas por da&ntilde;os a la organizaci&oacute;n sindical</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Recursos de anulaci&oacute;n de laudos arbitrales')"><span class="dot"></span>Recursos de anulaci&oacute;n de laudos arbitrales</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Defensa de laudos arbitrales en la Corte Suprema de Justicia')"><span class="dot"></span>Defensa de laudos arbitrales en la Corte Suprema de Justicia</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Denuncias ante la CETCOIT por violaci&oacute;n a los convenios')"><span class="dot"></span>Denuncias ante la CETCOIT por violaci&oacute;n a los convenios</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Quejas ante el comit&eacute; de libertad sindical')"><span class="dot"></span>Quejas ante el comit&eacute; de libertad sindical</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Procedimientos administrativos de unidad de empresa')"><span class="dot"></span>Procedimientos administrativos de unidad de empresa</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Procesos ante el Ministerio del Trabajo')"><span class="dot"></span>Procesos administrativos y de polic&iacute;a ante el Ministerio del Trabajo</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Defensa jur&iacute;dica de fueros sindicales')"><span class="dot"></span>Defensa jur&iacute;dica especializada de fueros sindicales</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Demandas de cancelaci&oacute;n de subdirectivas sindicales')"><span class="dot"></span>Defensa en demandas de cancelaci&oacute;n y liquidaci&oacute;n de subdirectivas sindicales</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Demandas de nulidad por violaci&oacute;n al derecho de asociaci&oacute;n sindical')"><span class="dot"></span>Demandas de nulidad por violaci&oacute;n al derecho de asociaci&oacute;n sindical</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Demandas de inconstitucionalidad por violaci&oacute;n de garant&iacute;as laborales')"><span class="dot"></span>Demandas de inconstitucionalidad por violaci&oacute;n de garant&iacute;as laborales</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Defensa de la legalidad de la huelga no contractual')"><span class="dot"></span>Defensa jur&iacute;dica de la legalidad de la huelga no contractual</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Acciones de cumplimiento en materia sindical')"><span class="dot"></span>Acciones de cumplimiento en materia sindical</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Asesor&iacute;a en negociaci&oacute;n sindical')"><span class="dot"></span>Asesor&iacute;a jur&iacute;dica especializada en negociaci&oacute;n sindical</button>
+            <button class="process-btn" onclick="openModal('Derecho Sindical','Redacci&oacute;n de pliegos de peticiones y convenciones colectivas')"><span class="dot"></span>Asesor&iacute;a en redacci&oacute;n de pliegos de peticiones y convenciones colectivas</button>
+          </div>
         </div>
-        <div class="hidden md:block text-ab-beige opacity-30">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </div>
+
+      <!-- ── SEGURIDAD SOCIAL ── -->
+      <div>
+        <div class="area-pill reveal reveal-delay-3" onclick="toggleArea(this)">
+          <div class="area-pill-icon">
+            <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-ab-cream text-xl font-medium mb-1">Seguridad Social</h3>
+            <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Exigimos la garant&iacute;a de los derechos pensionales de los trabajadores.</p>
+          </div>
+          <div class="text-ab-beige opacity-40 chevron-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <div class="area-processes">
+          <div class="grid gap-2 pt-2">
+            <button class="process-btn" onclick="openModal('Seguridad Social','Demanda por pensi&oacute;n de sobreviviente')"><span class="dot"></span>Demanda por pensi&oacute;n de sobreviviente</button>
+            <button class="process-btn" onclick="openModal('Seguridad Social','Demanda por reconocimiento pensional')"><span class="dot"></span>Demanda por reconocimiento pensional</button>
+            <button class="process-btn" onclick="openModal('Seguridad Social','Demanda por no pago de seguridad social')"><span class="dot"></span>Demanda por no pago de seguridad social</button>
+            <button class="process-btn" onclick="openModal('Seguridad Social','Demanda por historias laborales')"><span class="dot"></span>Demanda por historias laborales</button>
+            <button class="process-btn" onclick="openModal('Seguridad Social','Demanda por pensi&oacute;n sanci&oacute;n')"><span class="dot"></span>Demanda por pensi&oacute;n sanci&oacute;n</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── DERECHO CONSTITUCIONAL ── -->
+      <div>
+        <div class="area-pill reveal reveal-delay-4" onclick="toggleArea(this)">
+          <div class="area-pill-icon">
+            <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-ab-cream text-xl font-medium mb-1">Derecho Constitucional</h3>
+            <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">Brindamos estrategias jur&iacute;dicas especializadas con derechos de petici&oacute;n y acciones de tutela.</p>
+          </div>
+          <div class="text-ab-beige opacity-40 chevron-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <div class="area-processes">
+          <div class="grid gap-2 pt-2">
+            <button class="process-btn" onclick="openModal('Derecho Constitucional','Acciones de tutela')"><span class="dot"></span>Acciones de tutela</button>
+            <button class="process-btn" onclick="openModal('Derecho Constitucional','Derechos de petici&oacute;n')"><span class="dot"></span>Derechos de petici&oacute;n</button>
+            <button class="process-btn" onclick="openModal('Derecho Constitucional','Acciones populares')"><span class="dot"></span>Acciones populares</button>
+            <button class="process-btn" onclick="openModal('Derecho Constitucional','Acciones de grupo')"><span class="dot"></span>Acciones de grupo</button>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<!-- ═══════════ MODAL DE CONSULTA ═══════════ -->
+<div id="consultaModal" class="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box" style="position:relative">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <p class="text-ab-beige text-xs tracking-widest uppercase font-sans mb-3">Solicitar asesor&iacute;a</p>
+    <h3 id="modalTitle" class="font-serif font-medium text-ab-cream text-2xl leading-tight mb-1"></h3>
+    <p id="modalProcess" class="font-sans text-ab-beige text-sm mb-6"></p>
+    <div class="tan-line mb-6"></div>
+    <form id="consultaForm" action="https://formsubmit.co/abogados@arenasbetancur.com" method="POST" class="space-y-4">
+      <input type="hidden" name="_subject" id="formSubject" value="">
+      <input type="hidden" name="_next" value="https://arenasbetancur.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="area" id="formArea" value="">
+      <input type="hidden" name="proceso" id="formProceso" value="">
+      <div>
+        <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Nombre completo</label>
+        <input type="text" name="nombre" id="modalNombre" required placeholder="Tu nombre completo" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+      </div>
+      <div>
+        <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Celular / WhatsApp</label>
+        <input type="tel" name="telefono" id="modalTel" required placeholder="+57" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+      </div>
+      <div>
+        <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Correo electr&oacute;nico</label>
+        <input type="email" name="email" id="modalEmail" placeholder="tu@correo.com" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+      </div>
+      <div>
+        <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">&iquest;Por qu&eacute; necesitas esta asesor&iacute;a?</label>
+        <textarea name="mensaje" id="modalMsg" rows="3" placeholder="Describe brevemente tu situaci&oacute;n..." class="form-control w-full px-4 py-3 text-sm rounded-sm resize-none"></textarea>
+      </div>
+      <button type="submit" class="btn-primary w-full py-3.5 text-xs tracking-widest uppercase rounded-sm">Enviar consulta &rarr;</button>
+    </form>
+    <div class="mt-3">
+      <a id="modalWhatsApp" href="#" target="_blank" class="btn-whatsapp">
+        <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+    <p class="font-sans text-ab-muted text-xs text-center mt-3">Respuesta en menos de 24 horas.</p>
+  </div>
+</div>
 
 <div class="sep"></div>
 
@@ -809,6 +991,64 @@
   // Hero entry animation
   document.querySelectorAll('#inicio .reveal').forEach((el, i) => {
     setTimeout(() => el.classList.add('visible'), 200 + i * 120);
+  });
+
+  // ── Acordeón de Áreas ──
+  function toggleArea(pill) {
+    const processes = pill.nextElementSibling || pill.parentElement.querySelector('.area-processes');
+    const parent = pill.parentElement;
+    const procDiv = parent.querySelector('.area-processes');
+    const isOpen = procDiv.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.area-pill.active').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.area-processes.open').forEach(p => p.classList.remove('open'));
+
+    // Open clicked if wasn't open
+    if (!isOpen) {
+      pill.classList.add('active');
+      procDiv.classList.add('open');
+    }
+  }
+
+  // ── Modal de Consulta ──
+  let currentArea = '';
+  let currentProcess = '';
+
+  function openModal(area, proceso) {
+    currentArea = area;
+    currentProcess = proceso;
+    document.getElementById('modalTitle').textContent = area;
+    document.getElementById('modalProcess').textContent = proceso;
+    document.getElementById('formSubject').value = 'Consulta: ' + proceso + ' (' + area + ')';
+    document.getElementById('formArea').value = area;
+    document.getElementById('formProceso').value = proceso;
+    updateWhatsAppLink();
+    document.getElementById('consultaModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('consultaModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function updateWhatsAppLink() {
+    const nombre = document.getElementById('modalNombre').value || '';
+    const msg = document.getElementById('modalMsg').value || '';
+    let text = 'Buenas, soy ' + (nombre || '[nombre]') + '. Necesito asesoría en ' + currentArea + ': ' + currentProcess + '.';
+    if (msg) text += ' ' + msg;
+    document.getElementById('modalWhatsApp').href = 'https://wa.me/573166349332?text=' + encodeURIComponent(text);
+  }
+
+  // Update WhatsApp link as user types
+  ['modalNombre','modalMsg'].forEach(function(id) {
+    document.getElementById(id).addEventListener('input', updateWhatsAppLink);
+  });
+
+  // Close modal with Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
   });
 </script>
 </body>
