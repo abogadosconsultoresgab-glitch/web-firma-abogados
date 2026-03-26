@@ -317,6 +317,40 @@
     text-decoration: none;
   }
   .btn-whatsapp:hover { background: #1ebe57; transform: translateY(-1px); }
+
+  /* ── Victory News Card ── */
+  .victory-news {
+    padding: 1.4rem 1.5rem;
+    background: rgba(27,18,18,.5);
+    border: 1px solid rgba(177,152,133,.1);
+    border-radius: 4px;
+    transition: border-color .3s;
+  }
+  .victory-news:hover { border-color: rgba(177,152,133,.3); }
+  .victory-news-actions {
+    display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1rem;
+  }
+  .btn-pdf {
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .45rem 1rem;
+    background: #B19885; color: #1B1212;
+    font-size: .68rem; font-weight: 500;
+    letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; border-radius: 3px; border: none;
+    transition: all .2s; cursor: pointer;
+  }
+  .btn-pdf:hover { background: #C9AA8F; }
+  .btn-similar {
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .45rem 1rem;
+    background: transparent; color: #B19885;
+    border: 1px solid rgba(177,152,133,.35);
+    font-size: .68rem; font-weight: 500; font-family: 'Jost', sans-serif;
+    letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; border-radius: 3px;
+    transition: all .2s; cursor: pointer;
+  }
+  .btn-similar:hover { background: rgba(177,152,133,.1); border-color: #B19885; }
 </style>
 </head>
 <body>
@@ -731,139 +765,195 @@
 
 <div class="sep"></div>
 
-<!-- ═══════════ VICTORIAS — 10 CASOS REALES ═══════════ -->
+<!-- ═══════════ VICTORIAS — ACORDEÓN POR ÁREA ═══════════ -->
 <section id="victorias" class="py-24 px-6 md:px-12 bg-ab-black">
   <div class="max-w-5xl mx-auto">
     <p class="text-ab-beige text-xs tracking-widest uppercase font-sans mb-4 reveal">Resultados comprobables &middot; Sentencias verificables</p>
     <h2 class="font-serif font-medium text-ab-cream text-4xl leading-tight mb-4 reveal reveal-delay-1">Nuestras<br><em class="ab-accent not-italic">Victorias Jur&iacute;dicas</em></h2>
-    <p class="font-sans font-light text-ab-muted text-sm mb-14 reveal reveal-delay-2" style="max-width:560px">10 sentencias reales. Cada una con PDF descargable. Estrategia, rigor y compromiso al servicio de los derechos laborales en Colombia.</p>
+    <p class="font-sans font-light text-ab-muted text-sm mb-14 reveal reveal-delay-2" style="max-width:560px">10 sentencias reales agrupadas por &aacute;rea. Haz clic para ver los casos y descargar cada sentencia en PDF. &iquest;Tu caso es similar? Sol&iacute;citanos asesor&iacute;a directa.</p>
 
-    <div class="flex flex-col gap-5">
+    <div class="flex flex-col gap-4">
 
-      <!-- CASO 1 -->
-      <div class="victory-card rounded-sm reveal reveal-delay-1">
-        <div class="victory-icon"><span class="case-number">01</span><div class="case-icon">&#9878;</div></div>
-        <div class="victory-content">
-          <span class="sentencia-badge mb-3 block">Litigio constitucional &mdash; Tutela</span>
-          <h3 class="font-serif text-ab-cream text-lg font-medium mb-1">Arenas vs. Tribunal de Cundinamarca</h3>
-          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-beige">Corte Constitucional &middot; Sala Sexta de Revisi&oacute;n &middot; T-255/2023</strong></p>
-          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-4">Se declar&oacute; defecto org&aacute;nico del Tribunal Administrativo de Cundinamarca por exceder su competencia al dictar medidas cautelares sobre hechos nuevos en etapa de cumplimiento de tutela.</p>
-          <a href="sentencias/1-arenas-vs-tribunal-cundinamarca.pdf" target="_blank" class="victory-btn">Ver Sentencia Completa &rarr;</a>
+      <!-- ── DERECHO LABORAL — Victorias ── -->
+      <div>
+        <div class="area-pill reveal reveal-delay-1" onclick="toggleArea(this)">
+          <div class="area-pill-icon">
+            <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-ab-cream text-xl font-medium mb-1">Derecho Laboral</h3>
+            <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">2 sentencias de estabilidad laboral reforzada</p>
+          </div>
+          <div class="text-ab-beige opacity-40 chevron-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <div class="area-processes">
+          <div class="grid gap-3 pt-3">
+            <!-- Caso 4: Henao vs Banco Agrario -->
+            <div class="victory-news">
+              <span class="sentencia-badge mb-2 block">Tribunal Superior de Manizales &middot; 2025</span>
+              <h4 class="font-serif text-ab-cream text-base font-medium mb-2">Henao vs. Banco Agrario &mdash; Reintegro por acoso laboral</h4>
+              <p class="font-sans font-light text-ab-muted text-xs leading-relaxed">La trabajadora fue despedida mientras recib&iacute;a tratamiento psiqui&aacute;trico por ansiedad severa causada por acoso laboral en el Banco Agrario, sin que la entidad solicitara autorizaci&oacute;n del Ministerio de Trabajo. El tribunal concedi&oacute; la tutela y orden&oacute; su reintegro inmediato con protecci&oacute;n de estabilidad laboral reforzada por condici&oacute;n de salud.</p>
+              <div class="victory-news-actions">
+                <a href="sentencias/4-henao-vs-banco-agrario-reintegro.pdf" target="_blank" class="btn-pdf">Ver sentencia PDF</a>
+                <button class="btn-similar" onclick="openModal('Derecho Laboral','Caso similar a: Henao vs. Banco Agrario (reintegro por acoso laboral)')">Mi caso es similar</button>
+              </div>
+            </div>
+            <!-- Caso 5: Cohen vs Banco Agrario -->
+            <div class="victory-news">
+              <span class="sentencia-badge mb-2 block">Tribunal Superior de Cartagena &middot; 2025</span>
+              <h4 class="font-serif text-ab-cream text-base font-medium mb-2">Cohen vs. Banco Agrario &mdash; Reintegro por fuero de salud</h4>
+              <p class="font-sans font-light text-ab-muted text-xs leading-relaxed">El trabajador fue desvinculado estando en licencia m&eacute;dica tras una cirug&iacute;a renal. El Banco Agrario procedi&oacute; con el despido sin contar con autorizaci&oacute;n del Ministerio de Trabajo, violando el derecho de estabilidad laboral reforzada que protege a trabajadores con condiciones de salud durante el tratamiento m&eacute;dico.</p>
+              <div class="victory-news-actions">
+                <a href="sentencias/5-cohen-vs-banco-agrario-reintegro.pdf" target="_blank" class="btn-pdf">Ver sentencia PDF</a>
+                <button class="btn-similar" onclick="openModal('Derecho Laboral','Caso similar a: Cohen vs. Banco Agrario (reintegro por fuero de salud)')">Mi caso es similar</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- CASO 2 -->
-      <div class="victory-card rounded-sm reveal reveal-delay-1">
-        <div class="victory-icon"><span class="case-number">02</span><div class="case-icon">&#127963;</div></div>
-        <div class="victory-content">
-          <span class="sentencia-badge mb-3 block">Derecho colectivo &mdash; Anulaci&oacute;n de laudo</span>
-          <h3 class="font-serif text-ab-cream text-lg font-medium mb-1">Sintraelecol vs. EPM</h3>
-          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-beige">Corte Suprema de Justicia &middot; Sala de Casaci&oacute;n Laboral &middot; SL3257-2024</strong></p>
-          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-4">Recurso de anulaci&oacute;n contra laudo arbitral que resolvi&oacute; conflicto colectivo por actualizaci&oacute;n econ&oacute;mica de beneficios convencionales de Sintraelecol Subdirectiva Antioquia frente a EPM (2008&ndash;2023).</p>
-          <a href="sentencias/2-sintraelecol-vs-epm-anulacion.pdf" target="_blank" class="victory-btn">Ver Sentencia Completa &rarr;</a>
+      <!-- ── DERECHO SINDICAL — Victorias ── -->
+      <div>
+        <div class="area-pill reveal reveal-delay-2" onclick="toggleArea(this)">
+          <div class="area-pill-icon">
+            <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3v18m0 0l-4-4m4 4l4-4M3 8h18"/><circle cx="12" cy="6" r="2"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-ab-cream text-xl font-medium mb-1">Derecho Sindical</h3>
+            <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">3 sentencias en anulaci&oacute;n de laudos, huelga y comunicaci&oacute;n sindical</p>
+          </div>
+          <div class="text-ab-beige opacity-40 chevron-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <div class="area-processes">
+          <div class="grid gap-3 pt-3">
+            <!-- Caso 2: Sintraelecol vs EPM -->
+            <div class="victory-news">
+              <span class="sentencia-badge mb-2 block">Corte Suprema de Justicia &middot; SL3257-2024</span>
+              <h4 class="font-serif text-ab-cream text-base font-medium mb-2">Sintraelecol vs. EPM &mdash; Anulaci&oacute;n de laudo arbitral</h4>
+              <p class="font-sans font-light text-ab-muted text-xs leading-relaxed">Se present&oacute; recurso de anulaci&oacute;n ante la Sala de Casaci&oacute;n Laboral contra el laudo arbitral que resolvi&oacute; el conflicto colectivo entre el sindicato Sintraelecol Subdirectiva Antioquia y EPM, sobre la actualizaci&oacute;n econ&oacute;mica de beneficios convencionales acumulados durante 15 a&ntilde;os (2008&ndash;2023).</p>
+              <div class="victory-news-actions">
+                <a href="sentencias/2-sintraelecol-vs-epm-anulacion.pdf" target="_blank" class="btn-pdf">Ver sentencia PDF</a>
+                <button class="btn-similar" onclick="openModal('Derecho Sindical','Caso similar a: Sintraelecol vs. EPM (anulaci\u00f3n de laudo)')">Mi caso es similar</button>
+              </div>
+            </div>
+            <!-- Caso 6: Utesfincol vs Banco Agrario -->
+            <div class="victory-news">
+              <span class="sentencia-badge mb-2 block">Tribunal Superior de Manizales &middot; Sala Laboral</span>
+              <h4 class="font-serif text-ab-cream text-base font-medium mb-2">Utesfincol vs. Banco Agrario &mdash; Huelga virtual en pandemia</h4>
+              <p class="font-sans font-light text-ab-muted text-xs leading-relaxed">En plena pandemia COVID-19, el Banco Agrario se neg&oacute; a negociar de buena fe la convenci&oacute;n colectiva y deneg&oacute; al sindicato Utesfincol un canal de comunicaci&oacute;n y una plataforma virtual para realizar la votaci&oacute;n de huelga. El tribunal concedi&oacute; la tutela protegiendo los derechos de negociaci&oacute;n colectiva y libre asociaci&oacute;n.</p>
+              <div class="victory-news-actions">
+                <a href="sentencias/6-utesfincol-vs-banco-agrario-huelga.pdf" target="_blank" class="btn-pdf">Ver sentencia PDF</a>
+                <button class="btn-similar" onclick="openModal('Derecho Sindical','Caso similar a: Utesfincol vs. Banco Agrario (huelga virtual)')">Mi caso es similar</button>
+              </div>
+            </div>
+            <!-- Caso 7: USEF SI vs Banco Agrario -->
+            <div class="victory-news">
+              <span class="sentencia-badge mb-2 block">Tribunal Administrativo de Caldas &middot; Sala Sexta</span>
+              <h4 class="font-serif text-ab-cream text-base font-medium mb-2">USEF SI vs. Banco Agrario &mdash; Canal de comunicaci&oacute;n sindical</h4>
+              <p class="font-sans font-light text-ab-muted text-xs leading-relaxed">El sindicato USEFSI solicit&oacute; al Banco Agrario un correo corporativo y espacio web para publicar informaci&oacute;n sindical. Ante la negativa, se interpuso tutela que fue confirmada por el tribunal, protegiendo los derechos de petici&oacute;n, libre asociaci&oacute;n y libertad de expresi&oacute;n sindical.</p>
+              <div class="victory-news-actions">
+                <a href="sentencias/7-usef-si-vs-banco-agrario-comunicacion.pdf" target="_blank" class="btn-pdf">Ver sentencia PDF</a>
+                <button class="btn-similar" onclick="openModal('Derecho Sindical','Caso similar a: USEF SI vs. Banco Agrario (comunicaci\u00f3n sindical)')">Mi caso es similar</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- CASO 3 -->
-      <div class="victory-card rounded-sm reveal reveal-delay-1">
-        <div class="victory-icon"><span class="case-number">03</span><div class="case-icon">&#129658;</div></div>
-        <div class="victory-content">
-          <span class="sentencia-badge mb-3 block">Seguridad social &mdash; Calificaci&oacute;n PCL</span>
-          <h3 class="font-serif text-ab-cream text-lg font-medium mb-1">Olga Isaza vs. Colpensiones</h3>
-          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-beige">Tribunal Superior de Medell&iacute;n &middot; Sala Penal &middot; Sentencia 2025-94</strong></p>
-          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-4">Se revoc&oacute; fallo de primera instancia y se orden&oacute; a Colpensiones realizar la calificaci&oacute;n de p&eacute;rdida de capacidad laboral, tras obstruir el tr&aacute;mite exigiendo documentaci&oacute;n adicional.</p>
-          <a href="sentencias/3-olga-isaza-vs-colpensiones-pericia.pdf" target="_blank" class="victory-btn">Ver Sentencia Completa &rarr;</a>
+      <!-- ── SEGURIDAD SOCIAL — Victorias ── -->
+      <div>
+        <div class="area-pill reveal reveal-delay-3" onclick="toggleArea(this)">
+          <div class="area-pill-icon">
+            <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-ab-cream text-xl font-medium mb-1">Seguridad Social</h3>
+            <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">2 sentencias contra Colpensiones por calificaci&oacute;n PCL y semanas</p>
+          </div>
+          <div class="text-ab-beige opacity-40 chevron-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <div class="area-processes">
+          <div class="grid gap-3 pt-3">
+            <!-- Caso 3: Olga Isaza vs Colpensiones -->
+            <div class="victory-news">
+              <span class="sentencia-badge mb-2 block">Tribunal Superior de Medell&iacute;n &middot; Sentencia 2025-94</span>
+              <h4 class="font-serif text-ab-cream text-base font-medium mb-2">Olga Isaza vs. Colpensiones &mdash; Calificaci&oacute;n de p&eacute;rdida de capacidad laboral</h4>
+              <p class="font-sans font-light text-ab-muted text-xs leading-relaxed">Colpensiones obstaculiz&oacute; la calificaci&oacute;n de p&eacute;rdida de capacidad laboral exigiendo documentaci&oacute;n adicional pese a un expediente m&eacute;dico de m&aacute;s de 140 folios. El tribunal revoc&oacute; el fallo de primera instancia y orden&oacute; a Colpensiones realizar la calificaci&oacute;n de forma inmediata.</p>
+              <div class="victory-news-actions">
+                <a href="sentencias/3-olga-isaza-vs-colpensiones-pericia.pdf" target="_blank" class="btn-pdf">Ver sentencia PDF</a>
+                <button class="btn-similar" onclick="openModal('Seguridad Social','Caso similar a: Isaza vs. Colpensiones (calificaci\u00f3n PCL)')">Mi caso es similar</button>
+              </div>
+            </div>
+            <!-- Caso 9: Luz Molina vs Colpensiones -->
+            <div class="victory-news">
+              <span class="sentencia-badge mb-2 block">Tribunal Superior de Manizales &middot; Sala Penal</span>
+              <h4 class="font-serif text-ab-cream text-base font-medium mb-2">Luz Molina vs. Colpensiones &mdash; Inclusi&oacute;n de semanas cotizadas</h4>
+              <p class="font-sans font-light text-ab-muted text-xs leading-relaxed">La trabajadora solicit&oacute; a Colpensiones la correcci&oacute;n de su historia laboral para incluir semanas de cotizaci&oacute;n entre 1985 y 1987 que su empleador nunca report&oacute; ni pag&oacute;. Mediante tutela se protegieron sus derechos de petici&oacute;n y habeas data, ordenando la correcci&oacute;n inmediata del historial pensional.</p>
+              <div class="victory-news-actions">
+                <a href="sentencias/9-molina-vs-colpensiones-semanas.pdf" target="_blank" class="btn-pdf">Ver sentencia PDF</a>
+                <button class="btn-similar" onclick="openModal('Seguridad Social','Caso similar a: Molina vs. Colpensiones (semanas cotizadas)')">Mi caso es similar</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- CASO 4 -->
-      <div class="victory-card rounded-sm reveal reveal-delay-1">
-        <div class="victory-icon"><span class="case-number">04</span><div class="case-icon">&#128737;</div></div>
-        <div class="victory-content">
-          <span class="sentencia-badge mb-3 block">Estabilidad reforzada &mdash; Acoso laboral</span>
-          <h3 class="font-serif text-ab-cream text-lg font-medium mb-1">Stephanie Henao vs. Banco Agrario</h3>
-          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-beige">Tribunal Superior de Manizales &middot; Sala Penal &middot; 2025</strong></p>
-          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-4">Se concedi&oacute; tutela y se orden&oacute; reintegro inmediato. El Banco Agrario despidi&oacute; a la trabajadora mientras recib&iacute;a tratamiento psiqui&aacute;trico por ansiedad severa causada por acoso laboral.</p>
-          <a href="sentencias/4-henao-vs-banco-agrario-reintegro.pdf" target="_blank" class="victory-btn">Ver Sentencia Completa &rarr;</a>
+      <!-- ── DERECHO CONSTITUCIONAL — Victorias ── -->
+      <div>
+        <div class="area-pill reveal reveal-delay-4" onclick="toggleArea(this)">
+          <div class="area-pill-icon">
+            <svg width="24" height="24" fill="none" stroke="#B19885" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-ab-cream text-xl font-medium mb-1">Derecho Constitucional</h3>
+            <p class="font-sans font-light text-ab-muted text-sm leading-relaxed">3 sentencias en tutelas, acceso a informaci&oacute;n y derecho al olvido</p>
+          </div>
+          <div class="text-ab-beige opacity-40 chevron-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <div class="area-processes">
+          <div class="grid gap-3 pt-3">
+            <!-- Caso 1: Arenas vs Tribunal Cundinamarca -->
+            <div class="victory-news">
+              <span class="sentencia-badge mb-2 block">Corte Constitucional &middot; T-255/2023</span>
+              <h4 class="font-serif text-ab-cream text-base font-medium mb-2">Arenas vs. Tribunal de Cundinamarca &mdash; Tutela por defecto org&aacute;nico</h4>
+              <p class="font-sans font-light text-ab-muted text-xs leading-relaxed">La Corte Constitucional declar&oacute; que el Tribunal Administrativo de Cundinamarca incurri&oacute; en defecto org&aacute;nico al exceder su competencia dictando medidas cautelares sobre hechos nuevos en etapa de cumplimiento de tutela. Una victoria que establece l&iacute;mites claros al poder judicial en materia de tutelas.</p>
+              <div class="victory-news-actions">
+                <a href="sentencias/1-arenas-vs-tribunal-cundinamarca.pdf" target="_blank" class="btn-pdf">Ver sentencia PDF</a>
+                <button class="btn-similar" onclick="openModal('Derecho Constitucional','Caso similar a: Arenas vs. Tribunal Cundinamarca (tutela)')">Mi caso es similar</button>
+              </div>
+            </div>
+            <!-- Caso 8: Arenas vs Banco Agrario -->
+            <div class="victory-news">
+              <span class="sentencia-badge mb-2 block">Tribunal Administrativo de Cundinamarca &middot; Secci&oacute;n Primera</span>
+              <h4 class="font-serif text-ab-cream text-base font-medium mb-2">Arenas vs. Banco Agrario &mdash; Acceso a informaci&oacute;n p&uacute;blica</h4>
+              <p class="font-sans font-light text-ab-muted text-xs leading-relaxed">El Banco Agrario neg&oacute; la entrega de informaci&oacute;n estad&iacute;stica sobre sus trabajadores oficiales, invocando reserva legal de confidencialidad. Se present&oacute; recurso de insistencia ante el tribunal, que analiz&oacute; si la informaci&oacute;n estaba leg&iacute;timamente protegida bajo la Ley 1755 de 2015 de acceso a informaci&oacute;n p&uacute;blica.</p>
+              <div class="victory-news-actions">
+                <a href="sentencias/8-arenas-vs-banco-agrario-información.pdf" target="_blank" class="btn-pdf">Ver sentencia PDF</a>
+                <button class="btn-similar" onclick="openModal('Derecho Constitucional','Caso similar a: Arenas vs. Banco Agrario (acceso a informaci\u00f3n)')">Mi caso es similar</button>
+              </div>
+            </div>
+            <!-- Caso 10: Vázquez vs Fiscalía -->
+            <div class="victory-news">
+              <span class="sentencia-badge mb-2 block">Corte Suprema de Justicia &middot; STP9737-2022</span>
+              <h4 class="font-serif text-ab-cream text-base font-medium mb-2">V&aacute;zquez vs. Fiscal&iacute;a &mdash; Derecho al olvido digital</h4>
+              <p class="font-sans font-light text-ab-muted text-xs leading-relaxed">Un ciudadano descubri&oacute; que las plataformas digitales de la Rama Judicial publicaban antecedentes penales de 2006 que no le correspond&iacute;an, afectando sus derechos a la igualdad y al trabajo. Se interpuso tutela ante la Corte Suprema solicitando el bloqueo y eliminaci&oacute;n de estos registros err&oacute;neos.</p>
+              <div class="victory-news-actions">
+                <a href="sentencias/10-vazquez-vs-fiscalia-olvido.pdf" target="_blank" class="btn-pdf">Ver sentencia PDF</a>
+                <button class="btn-similar" onclick="openModal('Derecho Constitucional','Caso similar a: V\u00e1zquez vs. Fiscal\u00eda (derecho al olvido)')">Mi caso es similar</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- CASO 5 -->
-      <div class="victory-card rounded-sm reveal reveal-delay-1">
-        <div class="victory-icon"><span class="case-number">05</span><div class="case-icon">&#127973;</div></div>
-        <div class="victory-content">
-          <span class="sentencia-badge mb-3 block">Estabilidad reforzada &mdash; Salud</span>
-          <h3 class="font-serif text-ab-cream text-lg font-medium mb-1">Guillermo Cohen vs. Banco Agrario</h3>
-          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-beige">Tribunal Superior de Cartagena &middot; Sala Civil-Familia &middot; 2025</strong></p>
-          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-4">Trabajador desvinculado estando en licencia m&eacute;dica tras cirug&iacute;a renal. Se impugn&oacute; la decisi&oacute;n por violaci&oacute;n al derecho de estabilidad laboral reforzada.</p>
-          <a href="sentencias/5-cohen-vs-banco-agrario-reintegro.pdf" target="_blank" class="victory-btn">Ver Sentencia Completa &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CASO 6 -->
-      <div class="victory-card rounded-sm reveal reveal-delay-1">
-        <div class="victory-icon"><span class="case-number">06</span><div class="case-icon">&#9994;</div></div>
-        <div class="victory-content">
-          <span class="sentencia-badge mb-3 block">Derecho colectivo &mdash; Huelga virtual</span>
-          <h3 class="font-serif text-ab-cream text-lg font-medium mb-1">Utesfincol vs. Banco Agrario</h3>
-          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-beige">Tribunal Superior de Manizales &middot; Sala Laboral &middot; Segunda Instancia</strong></p>
-          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-4">El Banco Agrario deneg&oacute; al sindicato canal de comunicaci&oacute;n y plataforma virtual para votaci&oacute;n de huelga en plena pandemia COVID-19. Tutela concedida.</p>
-          <a href="sentencias/6-utesfincol-vs-banco-agrario-huelga.pdf" target="_blank" class="victory-btn">Ver Sentencia Completa &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CASO 7 -->
-      <div class="victory-card rounded-sm reveal reveal-delay-1">
-        <div class="victory-icon"><span class="case-number">07</span><div class="case-icon">&#128225;</div></div>
-        <div class="victory-content">
-          <span class="sentencia-badge mb-3 block">Derecho sindical &mdash; Comunicaci&oacute;n</span>
-          <h3 class="font-serif text-ab-cream text-lg font-medium mb-1">USEF SI vs. Banco Agrario</h3>
-          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-beige">Tribunal Administrativo de Caldas &middot; Sala Sexta de Decisi&oacute;n</strong></p>
-          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-4">Se protegieron los derechos de petici&oacute;n, libre asociaci&oacute;n y libertad de expresi&oacute;n sindical. Tutela confirmada.</p>
-          <a href="sentencias/7-usef-si-vs-banco-agrario-comunicacion.pdf" target="_blank" class="victory-btn">Ver Sentencia Completa &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CASO 8 -->
-      <div class="victory-card rounded-sm reveal reveal-delay-1">
-        <div class="victory-icon"><span class="case-number">08</span><div class="case-icon">&#128203;</div></div>
-        <div class="victory-content">
-          <span class="sentencia-badge mb-3 block">Informaci&oacute;n p&uacute;blica &mdash; Insistencia</span>
-          <h3 class="font-serif text-ab-cream text-lg font-medium mb-1">Arenas vs. Banco Agrario</h3>
-          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-beige">Tribunal Administrativo de Cundinamarca &middot; Secci&oacute;n Primera</strong></p>
-          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-4">Recurso de insistencia ante negativa del Banco Agrario de entregar informaci&oacute;n estad&iacute;stica sobre trabajadores oficiales. An&aacute;lisis bajo Ley 1755 de 2015.</p>
-          <a href="sentencias/8-arenas-vs-banco-agrario-información.pdf" target="_blank" class="victory-btn">Ver Sentencia Completa &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CASO 9 -->
-      <div class="victory-card rounded-sm reveal reveal-delay-1">
-        <div class="victory-icon"><span class="case-number">09</span><div class="case-icon">&#128202;</div></div>
-        <div class="victory-content">
-          <span class="sentencia-badge mb-3 block">Seguridad social &mdash; Semanas cotizadas</span>
-          <h3 class="font-serif text-ab-cream text-lg font-medium mb-1">Luz Molina vs. Colpensiones</h3>
-          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-beige">Tribunal Superior de Manizales &middot; Sala Penal</strong></p>
-          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-4">Tutela por mora judicial e inclusi&oacute;n de semanas de cotizaci&oacute;n (1985&ndash;1987) no reportadas por el empleador. Se orden&oacute; a Colpensiones corregir la historia laboral.</p>
-          <a href="sentencias/9-molina-vs-colpensiones-semanas.pdf" target="_blank" class="victory-btn">Ver Sentencia Completa &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CASO 10 -->
-      <div class="victory-card rounded-sm reveal reveal-delay-1">
-        <div class="victory-icon"><span class="case-number">10</span><div class="case-icon">&#128274;</div></div>
-        <div class="victory-content">
-          <span class="sentencia-badge mb-3 block">Derecho constitucional &mdash; Derecho al olvido</span>
-          <h3 class="font-serif text-ab-cream text-lg font-medium mb-1">Juan V&aacute;zquez vs. Fiscal&iacute;a</h3>
-          <p class="font-sans text-ab-muted text-xs leading-relaxed mb-1"><strong class="text-ab-beige">Corte Suprema de Justicia &middot; Sala de Tutelas &middot; STP9737-2022</strong></p>
-          <p class="font-sans font-light text-ab-muted text-xs leading-relaxed mb-4">Tutela por derecho al olvido digital. Se solicit&oacute; el bloqueo y eliminaci&oacute;n de antecedentes penales de 2006 publicados en plataformas de la Rama Judicial.</p>
-          <a href="sentencias/10-vazquez-vs-fiscalia-olvido.pdf" target="_blank" class="victory-btn">Ver Sentencia Completa &rarr;</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="mt-12 text-center reveal">
-      <a href="mailto:abogados@arenasbetancur.com?subject=Quiero conocer más sobre los casos de la firma" class="btn-outline px-8 py-3 text-xs tracking-widest uppercase inline-block rounded-sm">Consultar sobre nuestros casos &rarr;</a>
     </div>
   </div>
 </section>
