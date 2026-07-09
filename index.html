@@ -19,11 +19,16 @@
 <meta property="og:url" content="https://arenasbetancur.com/">
 <meta property="og:site_name" content="Arenas Betancur Abogados">
 <meta property="og:locale" content="es_CO">
+<meta property="og:image" content="https://arenasbetancur.com/assets/hero-descripcion-firma.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Arenas Betancur Abogados — Firma de derecho laboral y sindical en Medellín">
 
 <!-- ══ TWITTER CARD ══ -->
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Arenas Betancur Abogados | Abogado Laboral Medell&iacute;n">
 <meta name="twitter:description" content="Firma de abogados en Medell&iacute;n, Antioquia. Especialistas en estabilidad laboral reforzada, derecho sindical, seguridad social y litigio constitucional.">
+<meta name="twitter:image" content="https://arenasbetancur.com/assets/hero-descripcion-firma.png">
 
 <!-- ══ GOOGLE ANALYTICS ══ -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4X0VSYESL"></script>
@@ -1577,7 +1582,7 @@
       </div>
     </div>
     <div class="flex flex-col md:flex-row items-center justify-between gap-3 pt-6" style="border-top:1px solid rgba(177,152,133,.08)">
-      <p class="font-sans text-xs" style="color:#6B5958">&copy; <script>document.write(new Date().getFullYear())</script> Arenas Betancur Abogados S.A.S. &mdash; Medell&iacute;n, Colombia</p>
+      <p class="font-sans text-xs" style="color:#6B5958">&copy; <span id="footer-year"></span> Arenas Betancur Abogados S.A.S. &mdash; Medell&iacute;n, Colombia</p>
       <a href="mailto:abogados@arenasbetancur.com" class="font-sans text-ab-beige text-xs hover:text-ab-cream transition-colors">abogados@arenasbetancur.com</a>
       <p class="font-sans text-xs" style="color:#6B5958">arenasbetancur.com</p>
     </div>
@@ -1592,6 +1597,10 @@
 
 <!-- ═══════════ JS ═══════════ -->
 <script>
+  // Footer year
+  const yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   // Sticky Nav scroll
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
