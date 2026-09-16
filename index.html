@@ -478,8 +478,8 @@
     <a href="#equipo" class="text-ab-muted hover:text-ab-beige text-xs tracking-widest uppercase font-sans transition-colors">Equipo</a>
     <a href="#contacto" class="btn-primary text-xs px-6 py-2.5 tracking-widest uppercase rounded-sm">Agendar Consulta</a>
   </div>
-  <button id="hamburger" onclick="toggleMenu()" class="md:hidden text-ab-beige focus:outline-none">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+  <button id="hamburger" onclick="toggleMenu()" aria-label="Abrir menú de navegación" aria-expanded="false" class="md:hidden text-ab-beige focus:outline-none">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
   </button>
 </nav>
 <div id="mobile-menu" class="fixed top-16 left-0 right-0 z-40 px-6 py-5 flex flex-col gap-4" style="background:rgba(27,18,18,.97);border-bottom:1px solid rgba(177,152,133,.15)">
@@ -494,7 +494,7 @@
 <section id="inicio" class="relative min-h-screen flex flex-col justify-center overflow-hidden">
   <!-- Background image -->
   <div class="absolute inset-0">
-    <img src="assets/hero-descripcion-firma.png" alt="" class="w-full h-full object-cover opacity-25">
+    <img src="assets/hero-descripcion-firma.png" alt="Despacho profesional de Arenas Betancur Abogados — Firma de derecho laboral y sindical en Medellín" class="w-full h-full object-cover opacity-25">
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(27,18,18,.92) 0%, rgba(70,48,46,.7) 50%, rgba(27,18,18,.95) 100%)"></div>
   </div>
 
@@ -882,19 +882,19 @@
       <input type="hidden" name="area" id="formArea" value="">
       <input type="hidden" name="proceso" id="formProceso" value="">
       <div>
-        <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Nombre completo</label>
-        <input type="text" name="nombre" id="modalNombre" required placeholder="Tu nombre completo" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+        <label for="modalNombre" class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Nombre completo</label>
+        <input type="text" name="nombre" id="modalNombre" required autocomplete="name" placeholder="Tu nombre completo" class="form-control w-full px-4 py-3 text-sm rounded-sm">
       </div>
       <div>
-        <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Celular / WhatsApp</label>
-        <input type="tel" name="telefono" id="modalTel" required placeholder="+57" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+        <label for="modalTel" class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Celular / WhatsApp</label>
+        <input type="tel" name="telefono" id="modalTel" required autocomplete="tel" placeholder="+57" class="form-control w-full px-4 py-3 text-sm rounded-sm">
       </div>
       <div>
-        <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Correo electr&oacute;nico</label>
-        <input type="email" name="email" id="modalEmail" placeholder="tu@correo.com" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+        <label for="modalEmail" class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Correo electr&oacute;nico</label>
+        <input type="email" name="email" id="modalEmail" autocomplete="email" placeholder="tu@correo.com" class="form-control w-full px-4 py-3 text-sm rounded-sm">
       </div>
       <div>
-        <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">&iquest;Por qu&eacute; necesitas esta asesor&iacute;a?</label>
+        <label for="modalMsg" class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">&iquest;Por qu&eacute; necesitas esta asesor&iacute;a?</label>
         <textarea name="mensaje" id="modalMsg" rows="3" placeholder="Describe brevemente tu situaci&oacute;n..." class="form-control w-full px-4 py-3 text-sm rounded-sm resize-none"></textarea>
       </div>
       <button type="submit" class="btn-primary w-full py-3.5 text-xs tracking-widest uppercase rounded-sm">Enviar consulta &rarr;</button>
@@ -1483,20 +1483,20 @@
           <input type="hidden" name="_next" value="https://arenasbetancur.com/gracias.html">
           <input type="hidden" name="_captcha" value="false">
           <div>
-            <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Nombre completo</label>
-            <input type="text" name="nombre" required placeholder="Tu nombre completo" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+            <label for="contactoNombre" class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Nombre completo</label>
+            <input type="text" name="nombre" id="contactoNombre" required autocomplete="name" placeholder="Tu nombre completo" class="form-control w-full px-4 py-3 text-sm rounded-sm">
           </div>
           <div>
-            <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Tel&eacute;fono / WhatsApp</label>
-            <input type="tel" name="telefono" required placeholder="+57" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+            <label for="contactoTel" class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Tel&eacute;fono / WhatsApp</label>
+            <input type="tel" name="telefono" id="contactoTel" required autocomplete="tel" placeholder="+57" class="form-control w-full px-4 py-3 text-sm rounded-sm">
           </div>
           <div>
-            <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Correo electr&oacute;nico</label>
-            <input type="email" name="email" placeholder="tu@correo.com" class="form-control w-full px-4 py-3 text-sm rounded-sm">
+            <label for="contactoEmail" class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Correo electr&oacute;nico</label>
+            <input type="email" name="email" id="contactoEmail" autocomplete="email" placeholder="tu@correo.com" class="form-control w-full px-4 py-3 text-sm rounded-sm">
           </div>
           <div>
-            <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">&Aacute;rea de consulta</label>
-            <select name="area" required class="form-control w-full px-4 py-3 text-sm rounded-sm">
+            <label for="contactoArea" class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">&Aacute;rea de consulta</label>
+            <select name="area" id="contactoArea" required class="form-control w-full px-4 py-3 text-sm rounded-sm">
               <option value="">Selecciona el &aacute;rea</option>
               <option>Estabilidad reforzada &mdash; reintegro / fuero de salud</option>
               <option>Madre o padre cabeza de familia &mdash; fuero</option>
@@ -1507,8 +1507,8 @@
             </select>
           </div>
           <div>
-            <label class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Describe brevemente tu caso</label>
-            <textarea name="caso" rows="4" placeholder="¿Qué está ocurriendo con tu trabajo o tus derechos?" class="form-control w-full px-4 py-3 text-sm rounded-sm resize-none"></textarea>
+            <label for="contactoCaso" class="font-sans text-ab-muted text-xs tracking-widest uppercase block mb-2">Describe brevemente tu caso</label>
+            <textarea name="caso" id="contactoCaso" rows="4" placeholder="¿Qué está ocurriendo con tu trabajo o tus derechos?" class="form-control w-full px-4 py-3 text-sm rounded-sm resize-none"></textarea>
           </div>
           <button type="submit" class="btn-primary w-full py-3.5 text-xs tracking-widest uppercase mt-2 rounded-sm">Solicitar consulta &rarr;</button>
           <p class="font-sans text-ab-muted text-xs text-center">Tu consulta ser&aacute; atendida en menos de 24 horas.</p>
@@ -1563,7 +1563,10 @@
 
   // Mobile menu
   function toggleMenu() {
-    document.getElementById('mobile-menu').classList.toggle('open');
+    var menu = document.getElementById('mobile-menu');
+    var hamburger = document.getElementById('hamburger');
+    var isOpen = menu.classList.toggle('open');
+    if (hamburger) hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   }
 
   // Scroll reveal
@@ -1640,6 +1643,7 @@
   var wizardCurrentStep = 1;
 
   function wizardSelect(step, value) {
+    if (!value) return;
     wizardData['step' + step] = value;
     if (step === 1) { wizardData.step2 = []; wizardGoTo(2); }
     else if (step === 3) { wizardGoTo(4); }
